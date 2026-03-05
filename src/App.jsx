@@ -77,7 +77,7 @@ export default function KGMasterClass() {
           { id: 'windows',          title: 'Window Cleaning',     icon: '🪟' },
           { id: 'floors',           title: 'Floor Care',          icon: '🪵' },
           { id: 'conferences',      title: 'Conference Rooms',    icon: '🖥️' },
-          { id: 'pressure_washing', title: 'Pressure Washing',    icon: '💧' },
+          { id: 'pressure_washing', title: 'Pressure Washing',    icon: '🚿' },
         ],
       },
 
@@ -258,7 +258,7 @@ export default function KGMasterClass() {
           { id: 'windows',          title: 'Limpieza de Ventanas',      icon: '🪟' },
           { id: 'floors',           title: 'Cuidado de Pisos',          icon: '🪵' },
           { id: 'conferences',      title: 'Salas de Conferencias',     icon: '🖥️' },
-          { id: 'pressure_washing', title: 'Limpieza a Presión',        icon: '💧' },
+          { id: 'pressure_washing', title: 'Limpieza a Presión',        icon: '🚿' },
         ],
       },
 
