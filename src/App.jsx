@@ -680,13 +680,13 @@ export default function KGMasterClass() {
               <img
                 src={selectedChemical.image}
                 alt={selectedChemical.name}
-                className="w-full object-contain bg-white"
+                className="modal-image w-full object-contain bg-white"
                 style={{ maxHeight: '380px' }}
               />
-              <div className="bg-blue-900 px-5 py-3 text-center">
+              <div className="modal-content bg-blue-900 px-5 py-3 text-center">
                 <h3 className="text-white font-bold text-lg">{selectedChemical.name}</h3>
               </div>
-              <div className="bg-blue-700 px-5 py-4">
+              <div className="modal-content bg-blue-700 px-5 py-4">
                 <p className="text-blue-50 text-sm leading-relaxed">{selectedChemical.description}</p>
               </div>
             </div>
