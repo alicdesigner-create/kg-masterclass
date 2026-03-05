@@ -344,8 +344,8 @@ export default function KGMasterClass() {
         </div>
 
         <div className="p-6 max-w-2xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-6 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-4xl">🏢</span>
               <h2 className="text-2xl font-bold text-blue-900">{k.title}</h2>
             </div>
@@ -356,14 +356,14 @@ export default function KGMasterClass() {
 
             <div className="grid grid-cols-2 gap-3 mb-6">
               {k.details.map((item, idx) => (
-                <div key={idx} className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                <div key={idx} className="bg-blue-50 rounded-lg p-4 border border-blue-100 text-center">
                   <p className="text-xs text-blue-600 font-medium uppercase tracking-wide">{item.label}</p>
                   <p className="text-blue-900 font-bold mt-1">{item.value}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-blue-900 text-white rounded-lg p-5 mb-6">
+            <div className="bg-blue-900 text-white rounded-lg p-5 mb-6 text-center">
               <h3 className="font-bold text-lg mb-2">{k.missionLabel}</h3>
               <p className="text-blue-100 text-sm leading-relaxed">{k.mission}</p>
             </div>
@@ -372,7 +372,7 @@ export default function KGMasterClass() {
               <h3 className="font-bold text-blue-900 text-lg mb-3">{k.valuesLabel}</h3>
               <div className="space-y-2">
                 {k.values.map((value, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
+                  <div key={idx} className="flex items-center justify-center gap-3 bg-gray-50 rounded-lg p-3">
                     <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-blue-900 text-xs font-bold">✓</span>
                     </div>
