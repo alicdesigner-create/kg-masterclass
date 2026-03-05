@@ -91,20 +91,20 @@ export default function KGMasterClass() {
 
       chemicals: {
         navTitle: 'Chemicals',
+        descriptions: {
+          nabc:       'A hospital-grade disinfectant and bathroom cleaner. Effectively kills bacteria and viruses while neutralizing odors; safe for most restroom surfaces.',
+          klearview:  'A streak-free glass and surface cleaner. Specifically formulated for windows, mirrors, and other reflective surfaces.',
+          topclean:   "A daily-use floor cleaner that removes dirt and grime without leaving residue. Its neutral pH ensures it won't damage floor finishes.",
+          nutrarinse: 'A specialty cleaner designed to remove ice-melt and salt residue. It eliminates alkaline deposits that dull floors during winter or after stripping.',
+          assurance:  'A heavy-duty cleaner for tough grease and oil build-up. Best suited for industrial or food-service environments.',
+          oxivir:     'A hospital-grade cleaner powered by AHP (Accelerated Hydrogen Peroxide). Provides broad-spectrum disinfection while remaining gentle and residue-free.',
+          ajax:       'A scratch-free powder cleanser designed for kitchens, bathrooms, and outdoor surfaces. It uses a bleach-based formula to scrub away tough stains and dirt.',
+          clr:        'A powerful multi-use cleaner that blasts calcium deposits, dissolves lime scale, and zaps rust stains. Ideal for faucets, showerheads, and appliances.',
+          enzymes:    'A bio-enzymatic solution with a fresh, fruity scent. It uses specialized bacterial strains to digest organic waste (fats, oils, grease) and neutralize odors in drains and pipes.',
+          stainless:  'A premium stainless steel cleaner and polish that protects and preserves surfaces while resisting fingerprints. Oil-based formula for lasting shine.',
+        },
         section1: {
           title: 'How to Use & Where to Use',
-          topics: [
-            { title: 'NABC',            description: 'Usage guidelines and safety' },
-            { title: 'Glance / Klearview', description: 'Proper application and usage' },
-            { title: 'Top Clean',       description: 'Application and proper use' },
-            { title: 'Nutra Rinse',     description: 'How to use and where to apply Nutra Rinse' },
-            { title: 'Assurance',       description: 'How to use and where to apply Assurance' },
-            { title: 'Oxivir',          description: 'How to use and where to apply Oxivir' },
-            { title: 'Stainless Steel Polish', description: 'How to use on stainless steel surfaces' },
-            { title: 'Ajax',            description: 'Proper use and application' },
-            { title: 'CLR',             description: 'Safe use and application of CLR' },
-            { title: 'Enzymes',         description: 'How to use and where to apply Enzymes' },
-          ],
         },
         section2: {
           title: 'Chemical Safety',
@@ -209,20 +209,20 @@ export default function KGMasterClass() {
 
       chemicals: {
         navTitle: 'Químicos',
+        descriptions: {
+          nabc:       'Desinfectante y limpiador de baños de grado hospitalario. Elimina bacterias y virus eficazmente mientras neutraliza olores; seguro para la mayoría de las superficies de baño.',
+          klearview:  'Limpiador de vidrios y superficies sin rayas. Formulado específicamente para ventanas, espejos y otras superficies reflectantes.',
+          topclean:   'Limpiador de pisos de uso diario que elimina suciedad sin dejar residuos. Su pH neutro garantiza que no dañará los acabados del piso.',
+          nutrarinse: 'Limpiador especializado para eliminar residuos de sal y deshielo. Elimina depósitos alcalinos que opacan los pisos en invierno o después del decapado.',
+          assurance:  'Limpiador de alto poder para grasa y aceite acumulado. Ideal para entornos industriales o de servicios de alimentos.',
+          oxivir:     'Limpiador de grado hospitalario impulsado por AHP (Peróxido de Hidrógeno Acelerado). Proporciona desinfección de amplio espectro siendo suave y sin residuos.',
+          ajax:       'Limpiador en polvo sin rayaduras para cocinas, baños y superficies exteriores. Usa una fórmula con cloro para eliminar manchas y suciedad difíciles.',
+          clr:        'Potente limpiador multiusos que elimina depósitos de calcio, disuelve sarro y quita manchas de óxido. Ideal para grifos, alcachofas de ducha y electrodomésticos.',
+          enzymes:    'Solución bio-enzimática con aroma frutal fresco. Usa cepas bacterianas especializadas para digerir residuos orgánicos (grasas, aceites) y neutralizar olores en desagües y tuberías.',
+          stainless:  'Limpiador y pulidor premium para acero inoxidable que protege y conserva las superficies resistiendo las huellas dactilares. Fórmula en aceite para un brillo duradero.',
+        },
         section1: {
           title: 'Cómo Usar y Dónde Usar',
-          topics: [
-            { title: 'NABC',            description: 'Guías de uso y seguridad' },
-            { title: 'Glance / Klearview', description: 'Aplicación y uso adecuado' },
-            { title: 'Top Clean',       description: 'Aplicación y uso adecuado' },
-            { title: 'Nutra Rinse',     description: 'Cómo usar y dónde aplicar Nutra Rinse' },
-            { title: 'Assurance',       description: 'Cómo usar y dónde aplicar Assurance' },
-            { title: 'Oxivir',          description: 'Cómo usar y dónde aplicar Oxivir' },
-            { title: 'Stainless Steel Polish', description: 'Cómo usar en superficies de acero inoxidable' },
-            { title: 'Ajax',            description: 'Uso y aplicación adecuados' },
-            { title: 'CLR',             description: 'Uso seguro y aplicación de CLR' },
-            { title: 'Enzymes',         description: 'Cómo usar y dónde aplicar Enzymes' },
-          ],
         },
         section2: {
           title: 'Seguridad con Químicos',
@@ -460,21 +460,22 @@ export default function KGMasterClass() {
   );
 
   // ── Chemicals Screen ──────────────────────────────────────────────────────────
-  const chemicalProducts = [
-    { id: 'nabc',       name: 'NABC',                    image: '/quimicos/nabc.jpg',       description: 'A hospital-grade disinfectant and bathroom cleaner. Effectively kills bacteria and viruses while neutralizing odors; safe for most restroom surfaces.' },
-    { id: 'klearview',  name: 'Glance / Klearview',      image: '/quimicos/klearview.jpg',  description: 'A streak-free glass and surface cleaner. Specifically formulated for windows, mirrors, and other reflective surfaces.' },
-    { id: 'topclean',   name: 'Top Clean',               image: '/quimicos/topclean.jpg',   description: "A daily-use floor cleaner that removes dirt and grime without leaving residue. Its neutral pH ensures it won't damage floor finishes." },
-    { id: 'nutrarinse', name: 'Nutra Rinse',             image: '/quimicos/nutrarinse.jpg', description: 'A specialty cleaner designed to remove ice-melt and salt residue. It eliminates alkaline deposits that dull floors during winter or after stripping.' },
-    { id: 'assurance',  name: 'Assurance',               image: '/quimicos/assurance.jpg',  description: 'A heavy-duty cleaner for tough grease and oil build-up. Best suited for industrial or food-service environments.' },
-    { id: 'oxivir',     name: 'Oxivir',                  image: '/quimicos/oxivir.jpg',     description: 'A hospital-grade cleaner powered by AHP (Accelerated Hydrogen Peroxide). Provides broad-spectrum disinfection while remaining gentle and residue-free.' },
-    { id: 'ajax',       name: 'Ajax',                    image: '/quimicos/ajax.jpg',       description: 'A scratch-free powder cleanser designed for kitchens, bathrooms, and outdoor surfaces. It uses a bleach-based formula to scrub away tough stains and dirt.' },
-    { id: 'clr',        name: 'CLR',                     image: '/quimicos/clr.jpg',        description: 'A powerful multi-use cleaner that blasts calcium deposits, dissolves lime scale, and zaps rust stains. Ideal for faucets, showerheads, and appliances.' },
-    { id: 'enzymes',    name: 'Victoria Bay Liquid Enzymes', image: '/quimicos/enzymes.jpg', description: 'A bio-enzymatic solution with a fresh, fruity scent. It uses specialized bacterial strains to digest organic waste (fats, oils, grease) and neutralize odors in drains and pipes.' },
-    { id: 'stainless',  name: 'Stainless Steel Polish',  image: '/quimicos/stainless.jpg',  description: 'A premium stainless steel cleaner and polish that protects and preserves surfaces while resisting fingerprints. Oil-based formula for lasting shine.' },
+  const chemicalProductBase = [
+    { id: 'nabc',       name: 'NABC',                        image: '/quimicos/nabc.jpg'       },
+    { id: 'klearview',  name: 'Glance / Klearview',          image: '/quimicos/klearview.jpg'  },
+    { id: 'topclean',   name: 'Top Clean',                   image: '/quimicos/topclean.jpg'   },
+    { id: 'nutrarinse', name: 'Nutra Rinse',                 image: '/quimicos/nutrarinse.jpg' },
+    { id: 'assurance',  name: 'Assurance',                   image: '/quimicos/assurance.jpg'  },
+    { id: 'oxivir',     name: 'Oxivir',                      image: '/quimicos/oxivir.jpg'     },
+    { id: 'ajax',       name: 'Ajax',                        image: '/quimicos/ajax.jpg'       },
+    { id: 'clr',        name: 'CLR',                         image: '/quimicos/clr.jpg'        },
+    { id: 'enzymes',    name: 'Victoria Bay Liquid Enzymes', image: '/quimicos/enzymes.jpg'    },
+    { id: 'stainless',  name: 'Stainless Steel Polish',      image: '/quimicos/stainless.jpg'  },
   ];
 
   const renderChemicals = () => {
     const c = t.chemicals;
+    const chemicalProducts = chemicalProductBase.map(p => ({ ...p, description: c.descriptions[p.id] }));
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
         {/* Navbar */}
