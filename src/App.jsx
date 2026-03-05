@@ -25,7 +25,7 @@ export default function KGMasterClass() {
       needMoreInfo: 'Need more info?',
       contactUs:    'Contact us',
       footer: {
-        copy:       '© 2024 KG Facility Solutions. All Rights Reserved.',
+        copy:       '© 2026 KG Facility Solutions. All Rights Reserved.',
         designedBy: 'Designed by tesographics.com',
       },
       contact: {
@@ -206,7 +206,7 @@ export default function KGMasterClass() {
       needMoreInfo: '¿Necesitas más información?',
       contactUs:    'Contáctanos',
       footer: {
-        copy:       '© 2024 KG Facility Solutions. Todos los Derechos Reservados.',
+        copy:       '© 2026 KG Facility Solutions. Todos los Derechos Reservados.',
         designedBy: 'Diseñado por tesographics.com',
       },
       contact: {
