@@ -35,8 +35,8 @@ export default function KGMasterClass() {
         title:       'About KG Facility Solutions',
         description: 'Family-owned and operated since 1995, KG Facility Solutions has proudly served the Front Range with premier commercial cleaning. We are dedicated to delivering top-tier cleaning and facility management services with a personal touch.',
         details: [
-          { label: 'Years in Market', value: '30+ years' },
-          { label: 'Locations',       value: 'Serving multiple facilities across Colorado' },
+          { label: '', value: '30+ years in the market' },
+          { label: '', value: 'Serving multiple industries across Colorado' },
         ],
         missionLabel: 'Our Mission',
         mission:      'Providing superior commercial cleaning services that go beyond the surface. We are committed to exceeding client standards while ensuring the highest levels of safety and professional care.',
@@ -150,8 +150,8 @@ export default function KGMasterClass() {
         title:       'Sobre KG Facility Solutions',
         description: 'Empresa familiar fundada en 1995, KG Facility Solutions ha servido con orgullo al Front Range con limpieza comercial de primer nivel. Nos dedicamos a brindar servicios de limpieza y gestión de instalaciones de primera clase con un toque personal.',
         details: [
-          { label: 'Años en el mercado', value: '30+ años' },
-          { label: 'Ubicaciones',        value: 'Sirviendo múltiples instalaciones en Colorado' },
+          { label: '', value: '30+ años en el mercado' },
+          { label: '', value: 'Sirviendo múltiples industrias en Colorado' },
         ],
         missionLabel: 'Nuestra Misión',
         mission:      'Brindar servicios superiores de limpieza comercial que van más allá de la superficie. Estamos comprometidos a superar los estándares del cliente garantizando los más altos niveles de seguridad y atención profesional.',
@@ -357,7 +357,7 @@ export default function KGMasterClass() {
             <div className="grid grid-cols-2 gap-3 mb-6">
               {k.details.map((item, idx) => (
                 <div key={idx} className="bg-blue-50 rounded-lg p-4 border border-blue-100 text-center">
-                  <p className="text-xs text-blue-600 font-medium uppercase tracking-wide">{item.label}</p>
+                  {item.label && <p className="text-xs text-blue-600 font-medium uppercase tracking-wide">{item.label}</p>}
                   <p className="text-blue-900 font-bold mt-1">{item.value}</p>
                 </div>
               ))}
