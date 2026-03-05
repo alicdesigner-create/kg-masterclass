@@ -4,6 +4,7 @@ import { ChevronRight, ArrowLeft, Building2, Sparkles, AlertTriangle, Wrench, Dr
 export default function KGMasterClass() {
   const [currentScreen, setCurrentScreen] = useState('home');
   const [lang, setLang] = useState('en');
+  const [selectedChemical, setSelectedChemical] = useState(null);
 
   const categoryIcons = {
     kgfs:      Building2,
@@ -459,10 +460,24 @@ export default function KGMasterClass() {
   );
 
   // ── Chemicals Screen ──────────────────────────────────────────────────────────
+  const chemicalProducts = [
+    { id: 'nabc',       name: 'NABC',                    image: '/quimicos/nabc.jpg',       description: 'A hospital-grade disinfectant and bathroom cleaner. Effectively kills bacteria and viruses while neutralizing odors; safe for most restroom surfaces.' },
+    { id: 'klearview',  name: 'Glance / Klearview',      image: '/quimicos/klearview.jpg',  description: 'A streak-free glass and surface cleaner. Specifically formulated for windows, mirrors, and other reflective surfaces.' },
+    { id: 'topclean',   name: 'Top Clean',               image: '/quimicos/topclean.jpg',   description: "A daily-use floor cleaner that removes dirt and grime without leaving residue. Its neutral pH ensures it won't damage floor finishes." },
+    { id: 'nutrarinse', name: 'Nutra Rinse',             image: '/quimicos/nutrarinse.jpg', description: 'A specialty cleaner designed to remove ice-melt and salt residue. It eliminates alkaline deposits that dull floors during winter or after stripping.' },
+    { id: 'assurance',  name: 'Assurance',               image: '/quimicos/assurance.jpg',  description: 'A heavy-duty cleaner for tough grease and oil build-up. Best suited for industrial or food-service environments.' },
+    { id: 'oxivir',     name: 'Oxivir',                  image: '/quimicos/oxivir.jpg',     description: 'A hospital-grade cleaner powered by AHP (Accelerated Hydrogen Peroxide). Provides broad-spectrum disinfection while remaining gentle and residue-free.' },
+    { id: 'ajax',       name: 'Ajax',                    image: '/quimicos/ajax.jpg',       description: 'A scratch-free powder cleanser designed for kitchens, bathrooms, and outdoor surfaces. It uses a bleach-based formula to scrub away tough stains and dirt.' },
+    { id: 'clr',        name: 'CLR',                     image: '/quimicos/clr.jpg',        description: 'A powerful multi-use cleaner that blasts calcium deposits, dissolves lime scale, and zaps rust stains. Ideal for faucets, showerheads, and appliances.' },
+    { id: 'enzymes',    name: 'Victoria Bay Liquid Enzymes', image: '/quimicos/enzymes.jpg', description: 'A bio-enzymatic solution with a fresh, fruity scent. It uses specialized bacterial strains to digest organic waste (fats, oils, grease) and neutralize odors in drains and pipes.' },
+    { id: 'stainless',  name: 'Stainless Steel Polish',  image: '/quimicos/stainless.jpg',  description: 'A premium stainless steel cleaner and polish that protects and preserves surfaces while resisting fingerprints. Oil-based formula for lasting shine.' },
+  ];
+
   const renderChemicals = () => {
     const c = t.chemicals;
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
+        {/* Navbar */}
         <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
           <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
             <ArrowLeft size={24} />
@@ -471,32 +486,96 @@ export default function KGMasterClass() {
           <div className="ml-auto"><LangToggle /></div>
         </div>
 
-        <div className="p-6 max-w-2xl mx-auto space-y-6">
-          {[c.section1, c.section2].map((section) => (
-            <div key={section.title}>
-              <h3 className="text-blue-900 font-bold text-base uppercase tracking-wide mb-3 px-1">
-                {section.title}
-              </h3>
-              <div className="space-y-3">
-                {section.topics.map((topic, idx) => (
-                  <button
-                    key={idx}
-                    className="w-full bg-white rounded-xl shadow-md p-5 flex items-center gap-4 hover:shadow-lg hover:scale-105 transition-all border border-gray-100 text-left"
+        <div className="p-4 max-w-2xl mx-auto space-y-6">
+          {/* Section 1 — Product grid */}
+          <div>
+            <h3 className="text-blue-900 font-bold text-base uppercase tracking-wide mb-3 px-1">
+              {c.section1.title}
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+              {chemicalProducts.map((product) => (
+                <button
+                  key={product.id}
+                  onClick={() => setSelectedChemical(product)}
+                  className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition-all bg-gray-100"
+                  style={{ height: '180px' }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full object-cover"
+                    style={{ height: '70%' }}
+                  />
+                  <div
+                    className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center gap-0.5"
+                    style={{ height: '30%', backgroundColor: 'rgba(30, 58, 138, 0.92)' }}
                   >
-                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 shadow">
-                      <span className="text-white font-bold text-sm">{idx + 1}</span>
+                    <p className="text-white font-bold text-xs text-center leading-tight px-2">{product.name}</p>
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs">👁️</span>
+                      <span className="text-white/80 text-xs">Ver más</span>
                     </div>
-                    <div className="flex-grow">
-                      <p className="text-blue-900 font-semibold">{topic.title}</p>
-                      <p className="text-gray-500 text-xs mt-0.5">{topic.description}</p>
-                    </div>
-                    <ChevronRight className="text-blue-300 flex-shrink-0" size={18} />
-                  </button>
-                ))}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 2 — Chemical Safety list */}
+          <div>
+            <h3 className="text-blue-900 font-bold text-base uppercase tracking-wide mb-3 px-1">
+              {c.section2.title}
+            </h3>
+            <div className="space-y-3">
+              {c.section2.topics.map((topic, idx) => (
+                <button
+                  key={idx}
+                  className="w-full bg-white rounded-xl shadow-md p-5 flex items-center gap-4 hover:shadow-lg hover:scale-105 transition-all border border-gray-100 text-left"
+                >
+                  <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 shadow">
+                    <span className="text-white font-bold text-sm">{idx + 1}</span>
+                  </div>
+                  <div className="flex-grow">
+                    <p className="text-blue-900 font-semibold">{topic.title}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{topic.description}</p>
+                  </div>
+                  <ChevronRight className="text-blue-300 flex-shrink-0" size={18} />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Modal */}
+        {selectedChemical && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+            onClick={() => setSelectedChemical(null)}
+          >
+            <div
+              className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedChemical(null)}
+                className="absolute top-3 right-3 z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition-colors"
+              >
+                <span className="text-blue-900 font-bold text-xl leading-none">×</span>
+              </button>
+              <img
+                src={selectedChemical.image}
+                alt={selectedChemical.name}
+                className="w-full object-cover"
+                style={{ height: '240px' }}
+              />
+              <div className="p-5">
+                <h3 className="text-blue-900 font-bold text-xl mb-3">{selectedChemical.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{selectedChemical.description}</p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     );
   };
