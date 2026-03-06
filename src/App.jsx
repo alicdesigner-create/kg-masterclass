@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeft, Building2, Sparkles, AlertTriangle, Wrench, Droplets, Star } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Building2, Sparkles, Shield, Wrench, Droplets, Star } from 'lucide-react';
 
 export default function KGMasterClass() {
   const [currentScreen, setCurrentScreen] = useState('home');
@@ -12,7 +12,7 @@ export default function KGMasterClass() {
   const categoryIcons = {
     kgfs:      Building2,
     cleaning:  Sparkles,
-    safety:    AlertTriangle,
+    safety:    Shield,
     equipment: Wrench,
     chemicals: Droplets,
     standards: Star,
@@ -354,20 +354,37 @@ export default function KGMasterClass() {
       {['en', 'es'].map((l, i) => (
         <React.Fragment key={l}>
           {i > 0 && (
-            <span className={`text-xs mx-0.5 ${dark ? 'text-blue-900/30' : 'text-white/40'}`}>|</span>
+            <span className={`mx-0.5 ${dark ? 'text-blue-900/30 text-sm' : 'text-white/40 text-xs'}`}>|</span>
           )}
           <button
             onClick={() => setLang(l)}
-            className={`text-xs font-bold px-2 py-0.5 rounded-full transition-colors ${
-              lang === l
-                ? dark ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'
-                : dark ? 'text-blue-700' : 'text-white/70 hover:text-white'
+            className={`font-bold rounded-full transition-colors ${
+              dark
+                ? `text-sm px-3 py-1 ${lang === l ? 'bg-blue-900 text-white' : 'text-blue-700'}`
+                : `text-xs px-2 py-0.5 ${lang === l ? 'bg-white text-blue-900' : 'text-white/70 hover:text-white'}`
             }`}
           >
             {l.toUpperCase()}
           </button>
         </React.Fragment>
       ))}
+    </div>
+  );
+
+  // ── Sub-page Nav with logo (shared across all inner screens) ─────────────────
+  const SubPageNav = ({ title, icon }) => (
+    <div className="sticky top-0 z-10 shadow-lg">
+      <div className="bg-blue-900 text-white py-3 px-4 flex items-center gap-3">
+        <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
+          <ArrowLeft size={22} />
+        </button>
+        {icon && <span className="text-lg">{icon}</span>}
+        <h2 className="font-bold text-base">{title}</h2>
+        <div className="ml-auto"><LangToggle /></div>
+      </div>
+      <div className="bg-white border-b border-gray-100 py-1.5 text-center">
+        <img src="/kg-logo.png" alt="KG Masterclass" className="h-7 mx-auto object-contain" />
+      </div>
     </div>
   );
 
@@ -454,13 +471,7 @@ export default function KGMasterClass() {
     const k = t.kgfs;
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{k.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
+        <SubPageNav title={k.navTitle} />
 
         <div className="p-6 max-w-2xl mx-auto pb-4">
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6 text-center">
@@ -512,14 +523,7 @@ export default function KGMasterClass() {
     const c = t.cleaning;
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{c.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
-
+        <SubPageNav title={c.navTitle} />
         <div className="p-6 max-w-2xl mx-auto">
           <p className="text-gray-600 text-sm mb-6">{c.intro}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -544,14 +548,7 @@ export default function KGMasterClass() {
   // ── Generic Topics Screen (Safety / Equipment) ────────────────────────────────
   const renderTopics = (navTitle, icon, topics) => (
     <div className="min-h-screen bg-slate-50 pb-20">
-      <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-        <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-          <ArrowLeft size={24} />
-        </button>
-        <span className="text-xl">{icon}</span>
-        <h2 className="font-bold text-lg">{navTitle}</h2>
-        <div className="ml-auto"><LangToggle /></div>
-      </div>
+      <SubPageNav title={navTitle} icon={icon} />
 
       <div className="p-6 max-w-2xl mx-auto space-y-3">
         {topics.map((topic, idx) => (
@@ -593,15 +590,7 @@ export default function KGMasterClass() {
     const chemicalProducts = chemicalProductBase.map(p => ({ ...p, description: c.descriptions[p.id] }));
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
-        {/* Navbar */}
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{c.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
-
+        <SubPageNav title={c.navTitle} />
         <div className="p-4 max-w-2xl mx-auto space-y-6">
           {/* Section 1 — Product grid */}
           <div>
@@ -701,14 +690,7 @@ export default function KGMasterClass() {
     const s = t.standards;
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{s.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
-
+        <SubPageNav title={s.navTitle} />
         <div className="p-6 max-w-2xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center gap-3 mb-4">
@@ -745,15 +727,7 @@ export default function KGMasterClass() {
     ];
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 pb-8">
-        {/* Navbar */}
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{c.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
-
+        <SubPageNav title={c.navTitle} />
         <div className="px-4 pt-8 pb-6 max-w-lg mx-auto space-y-8">
 
           {/* ── Office card ── */}
@@ -838,18 +812,7 @@ export default function KGMasterClass() {
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800">
-        {/* Navbar */}
-        <div className="bg-blue-900 text-white py-4 px-6 sticky top-0 z-10 shadow-lg flex items-center gap-3">
-          <button
-            onClick={() => setCurrentScreen('home')}
-            className="hover:bg-blue-800 p-2 rounded transition"
-          >
-            <ArrowLeft size={24} />
-          </button>
-          <h2 className="font-bold text-lg">{r.navTitle}</h2>
-          <div className="ml-auto"><LangToggle /></div>
-        </div>
-
+        <SubPageNav title={r.navTitle} />
         <div className="px-4 pt-8 pb-12 max-w-md mx-auto">
           {!formSubmitted ? (
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
