@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeft, Building2, Sparkles, Shield, Wrench, Droplets, Star, FolderOpen } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Building2, Sparkles, Shield, Wrench, Droplets, Star, FolderOpen, ShieldCheck, Lightbulb, Users2, ClipboardCheck, Handshake } from 'lucide-react';
 
 export default function KGMasterClass() {
   const [currentScreen, setCurrentScreen] = useState('home');
@@ -49,22 +49,22 @@ export default function KGMasterClass() {
       ],
 
       kgfs: {
-        navTitle:    'Learn about KGFS',
-        title:       'About KG Facility Solutions',
-        description: 'Family-owned and operated since 1995, KG Facility Solutions has proudly served the Front Range with premier commercial cleaning. We are dedicated to delivering top-tier cleaning and facility management services with a personal touch.',
+        navTitle:      'Learn about KGFS',
+        purposeLabel:  'Our Purpose',
+        description:   'Family-owned and operated since 1995, KG Facility Solutions has proudly served the Front Range with premier commercial cleaning. We are dedicated to leading and creating healthy, safe, and sustainable environments by delivering top-tier facility management and innovative solutions with a personal touch for all our communities.',
+        boldYear:      '1995',
+        boldCompany:   'KG Facility Solutions',
         details: [
-          { label: '', value: '30+ years in the market' },
-          { label: '', value: 'Serving multiple industries across Colorado' },
+          { value: '30+ years in the market' },
+          { value: 'Serving multiple industries across Colorado' },
         ],
-        missionLabel: 'Our Mission',
-        mission:      'Providing superior commercial cleaning services that go beyond the surface. We are committed to exceeding client standards while ensuring the highest levels of safety and professional care.',
-        valuesLabel:  'Our Values',
+        valuesLabel: 'Core Values',
         values: [
-          'Excellence in Service Quality & Customer Experience',
-          'Employee safety and wellbeing',
-          'Environmental responsibility',
-          'Customer-focused solutions',
-          'Continuous improvement',
+          { label: 'Integrity',      Icon: ShieldCheck    },
+          { label: 'Innovation',     Icon: Lightbulb      },
+          { label: 'Inclusiveness',  Icon: Users2         },
+          { label: 'Accountability', Icon: ClipboardCheck },
+          { label: 'Relationships',  Icon: Handshake      },
         ],
       },
 
@@ -241,22 +241,22 @@ export default function KGMasterClass() {
       ],
 
       kgfs: {
-        navTitle:    'Conoce KGFS',
-        title:       'Sobre KG Facility Solutions',
-        description: 'Empresa familiar fundada en 1995, KG Facility Solutions ha servido con orgullo al Front Range con limpieza comercial de primer nivel. Nos dedicamos a brindar servicios de limpieza y gestión de instalaciones de primera clase con un toque personal.',
+        navTitle:      'Conoce KGFS',
+        purposeLabel:  'Nuestro Propósito',
+        description:   'Empresa familiar fundada en 1995, KG Facility Solutions ha servido con orgullo al Front Range con limpieza comercial de primer nivel. Nos dedicamos a liderar y crear entornos saludables, seguros y sostenibles, brindando gestión de instalaciones de primer nivel y soluciones innovadoras con un toque personal para todas nuestras comunidades.',
+        boldYear:      '1995',
+        boldCompany:   'KG Facility Solutions',
         details: [
-          { label: '', value: '30+ años en el mercado' },
-          { label: '', value: 'Sirviendo múltiples industrias en Colorado' },
+          { value: '30+ años en el mercado' },
+          { value: 'Sirviendo múltiples industrias en Colorado' },
         ],
-        missionLabel: 'Nuestra Misión',
-        mission:      'Brindar servicios superiores de limpieza comercial que van más allá de la superficie. Estamos comprometidos a superar los estándares del cliente garantizando los más altos niveles de seguridad y atención profesional.',
-        valuesLabel:  'Nuestros Valores',
+        valuesLabel: 'Valores Fundamentales',
         values: [
-          'Excelencia en Calidad del Servicio & Experiencia del Cliente',
-          'Seguridad y bienestar del empleado',
-          'Responsabilidad ambiental',
-          'Soluciones centradas en el cliente',
-          'Mejora continua',
+          { label: 'Integridad',       Icon: ShieldCheck    },
+          { label: 'Innovación',       Icon: Lightbulb      },
+          { label: 'Inclusión',        Icon: Users2         },
+          { label: 'Responsabilidad',  Icon: ClipboardCheck },
+          { label: 'Relaciones',       Icon: Handshake      },
         ],
       },
 
@@ -492,51 +492,65 @@ export default function KGMasterClass() {
   // ── KGFS Screen ──────────────────────────────────────────────────────────────
   const renderKGFS = () => {
     const k = t.kgfs;
+
+    // Render description with bold year and company name
+    const parts = k.description.split(/(1995|KG Facility Solutions)/g);
+
     return (
       <div className="min-h-screen bg-slate-50 pb-20">
         <SubPageNav title={k.navTitle} />
 
-        <div className="p-6 max-w-2xl mx-auto pb-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-4xl">🏢</span>
-              <h2 className="text-2xl font-bold text-blue-900">{k.title}</h2>
-            </div>
-            <div className="flex justify-center mb-6">
-              <img src="/kg-logo-mean.png" alt="KG Logo" className="h-48 object-contain" />
-            </div>
-            <p className="text-gray-700 mb-6">{k.description}</p>
+        <div className="p-5 max-w-2xl mx-auto space-y-5">
 
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {k.details.map((item, idx) => (
-                <div key={idx} className="bg-blue-50 rounded-lg p-4 border border-blue-100 text-center">
-                  {item.label && <p className="text-xs text-blue-600 font-medium uppercase tracking-wide">{item.label}</p>}
-                  <p className="text-blue-900 font-bold mt-1">{item.value}</p>
+          {/* Logo */}
+          <div className="flex justify-center pt-2">
+            <img src="/kg-logo-mean.png" alt="KG Logo" className="h-36 object-contain" />
+          </div>
+
+          {/* Our Purpose card */}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-blue-900 px-5 py-3">
+              <h2 className="text-white font-bold text-lg tracking-wide">{k.purposeLabel}</h2>
+            </div>
+            <div className="px-5 py-5">
+              <p className="text-gray-700 text-sm leading-relaxed">
+                {parts.map((part, i) =>
+                  part === k.boldYear || part === k.boldCompany
+                    ? <strong key={i} className="text-blue-900 font-bold">{part}</strong>
+                    : part
+                )}
+              </p>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-3">
+            {k.details.map((item, idx) => (
+              <div key={idx} className="bg-blue-900 rounded-xl p-4 text-center shadow-md">
+                <p className="text-yellow-400 font-bold text-sm leading-snug">{item.value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Core Values */}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-blue-900 px-5 py-3">
+              <h2 className="text-white font-bold text-lg tracking-wide">{k.valuesLabel}</h2>
+            </div>
+            <div className="grid grid-cols-1 divide-y divide-gray-100">
+              {k.values.map(({ label, Icon }, idx) => (
+                <div key={idx} className="flex items-center gap-4 px-5 py-4">
+                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon size={20} className="text-blue-900" />
+                  </div>
+                  <p className="text-blue-900 font-semibold text-sm">{label}</p>
                 </div>
               ))}
             </div>
-
-            <div className="bg-blue-900 text-white rounded-lg p-5 mb-6 text-center">
-              <h3 className="font-bold text-lg mb-2">{k.missionLabel}</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">{k.mission}</p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-blue-900 text-lg mb-3">{k.valuesLabel}</h3>
-              <div className="space-y-2">
-                {k.values.map((value, idx) => (
-                  <div key={idx} className="flex items-center justify-center gap-3 bg-gray-50 rounded-lg p-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-blue-900 text-xs font-bold">✓</span>
-                    </div>
-                    <p className="text-gray-700 text-sm">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
+
         </div>
-      <PageFooter />
+        <PageFooter />
       </div>
     );
   };
