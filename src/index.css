@@ -7,6 +7,24 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.splash-logo {
+  animation: fadeInScale 0.5s ease-out both;
+}
+
+.splash-hide {
+  animation: fadeOut 0.3s ease-out both;
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }

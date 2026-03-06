@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronRight, ArrowLeft, Building2, Sparkles, Shield, Wrench, Droplets, Star, FolderOpen, ShieldCheck, Lightbulb, Users2, ClipboardCheck, Handshake } from 'lucide-react';
 
 export default function KGMasterClass() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [splashHiding, setSplashHiding] = useState(false);
   const [currentScreen, setCurrentScreen] = useState(
     () => localStorage.getItem('currentScreen') || 'home'
   );
@@ -10,6 +12,15 @@ export default function KGMasterClass() {
   const [userInfo, setUserInfo] = useState({ name: '', phone: '', role: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+
+  // ── Splash Screen ─────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const hideTimer = setTimeout(() => {
+      setSplashHiding(true);
+      setTimeout(() => setShowSplash(false), 300);
+    }, 2500);
+    return () => clearTimeout(hideTimer);
+  }, []);
 
   // ── Navigation: persist screen + handle Android back button ──────────────────
   const navigateTo = useCallback((screen) => {
@@ -1038,6 +1049,19 @@ export default function KGMasterClass() {
       </div>
     );
   };
+
+  // ── Splash Screen render ─────────────────────────────────────────────────────
+  if (showSplash) {
+    return (
+      <div className={`fixed inset-0 z-50 flex items-center justify-center bg-blue-900 ${splashHiding ? 'splash-hide' : ''}`}>
+        <img
+          src="/splash-logo.png"
+          alt="KG Masterclass"
+          className="splash-logo w-64 max-w-xs object-contain"
+        />
+      </div>
+    );
+  }
 
   // ── Router ───────────────────────────────────────────────────────────────────
   switch (currentScreen) {
