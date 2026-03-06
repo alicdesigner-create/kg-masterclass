@@ -521,11 +521,8 @@ export default function KGMasterClass() {
           </div>
 
           {/* ── Our Purpose ── */}
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="h-0.5 w-5 bg-blue-900 rounded" />
-              <h2 className="text-blue-900 font-bold text-base uppercase tracking-widest">{k.purposeLabel}</h2>
-            </div>
+          <div className="text-center">
+            <h2 className="text-blue-900 font-bold text-base uppercase tracking-widest mb-2">{k.purposeLabel}</h2>
             <p className="text-gray-600 text-sm leading-relaxed">
               {parts.map((part, i) =>
                 part === k.boldYear || part === k.boldCompany
@@ -539,15 +536,12 @@ export default function KGMasterClass() {
           <hr className="border-gray-100" />
 
           {/* ── Core Values ── */}
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="h-0.5 w-5 bg-blue-900 rounded" />
-              <h2 className="text-blue-900 font-bold text-base uppercase tracking-widest">{k.valuesLabel}</h2>
-            </div>
+          <div className="text-center">
+            <h2 className="text-blue-900 font-bold text-base uppercase tracking-widest mb-3">{k.valuesLabel}</h2>
             <div className="grid grid-cols-2 gap-2">
               {k.values.map(({ label, Icon }, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 bg-slate-50 hover:bg-blue-50 transition-colors">
-                  <Icon size={18} className="text-blue-900 flex-shrink-0" />
+                <div key={idx} className="flex flex-col items-center gap-1.5 p-3 rounded-xl border border-gray-100 bg-slate-50 hover:bg-blue-50 transition-colors">
+                  <Icon size={20} className="text-blue-900" />
                   <p className="text-gray-700 font-medium text-sm">{label}</p>
                 </div>
               ))}
