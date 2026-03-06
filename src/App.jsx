@@ -1,13 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronRight, ArrowLeft, Building2, Sparkles, Shield, Wrench, Droplets, Star, FolderOpen, ShieldCheck, Lightbulb, Users2, ClipboardCheck, Handshake } from 'lucide-react';
 
 export default function KGMasterClass() {
-  const [currentScreen, setCurrentScreen] = useState('home');
+  const [currentScreen, setCurrentScreen] = useState(
+    () => localStorage.getItem('currentScreen') || 'home'
+  );
   const [lang, setLang] = useState('en');
   const [selectedChemical, setSelectedChemical] = useState(null);
   const [userInfo, setUserInfo] = useState({ name: '', phone: '', role: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+
+  // ── Navigation: persist screen + handle Android back button ──────────────────
+  const navigateTo = useCallback((screen) => {
+    localStorage.setItem('currentScreen', screen);
+    if (screen !== 'home') {
+      window.history.pushState({ screen }, '', '');
+    }
+    setCurrentScreen(screen);
+  }, []);
+
+  const goHome = useCallback(() => {
+    localStorage.setItem('currentScreen', 'home');
+    setCurrentScreen('home');
+  }, []);
+
+  useEffect(() => {
+    // Seed history so back button has somewhere to pop to
+    window.history.replaceState({ screen: currentScreen }, '', '');
+    if (currentScreen !== 'home') {
+      window.history.pushState({ screen: 'home' }, '', '');
+      window.history.pushState({ screen: currentScreen }, '', '');
+    }
+
+    const onPopState = (e) => {
+      const target = e.state?.screen ?? 'home';
+      localStorage.setItem('currentScreen', target);
+      setCurrentScreen(target);
+    };
+
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const categoryIcons = {
     kgfs:      Building2,
@@ -402,7 +437,7 @@ export default function KGMasterClass() {
   const SubPageNav = ({ title, icon }) => (
     <div className="sticky top-0 z-10 shadow-lg">
       <div className="bg-blue-900 text-white py-3 px-4 flex items-center gap-3">
-        <button onClick={() => setCurrentScreen('home')} className="hover:bg-blue-800 p-2 rounded transition">
+        <button onClick={goHome} className="hover:bg-blue-800 p-2 rounded transition">
           <ArrowLeft size={22} />
         </button>
         {icon && <span className="text-lg">{icon}</span>}
@@ -443,7 +478,7 @@ export default function KGMasterClass() {
             return (
               <button
                 key={id}
-                onClick={() => setCurrentScreen(id)}
+                onClick={() => navigateTo(id)}
                 className="w-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-105 text-left transform"
                 style={{ backgroundColor: 'rgba(255, 255, 255, 0.88)' }}
               >
@@ -466,14 +501,14 @@ export default function KGMasterClass() {
       {/* Footer */}
       <div className="fixed bottom-0 left-0 right-0 bg-blue-900 px-4 py-2 text-center shadow-2xl">
         <button
-          onClick={() => { setFormSubmitted(false); setFormErrors({}); setCurrentScreen('registration'); }}
+          onClick={() => { setFormSubmitted(false); setFormErrors({}); navigateTo('registration'); }}
           className="bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 text-blue-900 font-bold py-2 px-8 rounded-lg transition-all w-full shadow-lg text-sm mb-1.5"
         >
           🎯 {t.takeQuiz}
         </button>
         <p className="text-white text-xs mb-1 font-semibold">{t.needMoreInfo}</p>
         <button
-          onClick={() => setCurrentScreen('contact')}
+          onClick={() => navigateTo('contact')}
           className="bg-cyan-500 hover:bg-cyan-600 text-blue-900 font-bold py-1.5 px-8 rounded-lg transition-colors w-full shadow text-xs"
         >
           {t.contactUs}
@@ -962,7 +997,7 @@ export default function KGMasterClass() {
                   </p>
                 </div>
                 <button
-                  onClick={() => setCurrentScreen('home')}
+                  onClick={goHome}
                   className="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-colors shadow"
                 >
                   {r.backHome}
