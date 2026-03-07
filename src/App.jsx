@@ -455,8 +455,8 @@ export default function KGMasterClass() {
         <h2 className="font-bold text-base">{title}</h2>
         <div className="ml-auto"><LangToggle /></div>
       </div>
-      <div className="bg-white border-b border-gray-100 py-1.5 text-center">
-        <img src="/kg-logo.png" alt="KG Masterclass" className="h-7 mx-auto object-contain" />
+      <div className="bg-white border-b border-gray-100 py-2.5 text-center">
+        <img src="/kg-logo.png" alt="KG Masterclass" className="h-11 mx-auto object-contain" />
       </div>
     </div>
   );
