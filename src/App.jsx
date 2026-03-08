@@ -12,6 +12,14 @@ export default function KGMasterClass() {
   const [userInfo, setUserInfo] = useState({ name: '', phone: '', role: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [scrollY, setScrollY] = useState(0);
+
+  // ── Scroll listener for parallax ──────────────────────────────────────────────
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // ── Splash Screen ─────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -781,15 +789,21 @@ export default function KGMasterClass() {
     <div className="min-h-screen bg-slate-50 pb-52">
 
       {/* ── Hero ── */}
-      <div
-        className="relative pt-14 pb-20 text-center"
-        style={{
-          backgroundImage: 'url("/janitor-cart.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Gradient overlay */}
+      <div className="relative pt-14 pb-20 text-center overflow-hidden">
+
+        {/* Background with parallax */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("/janitor-cart.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: `translateY(${scrollY * 0.4}px)`,
+            willChange: 'transform',
+          }}
+        />
+
+        {/* White gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/50" />
 
         {/* Lang toggle */}
@@ -797,8 +811,14 @@ export default function KGMasterClass() {
           <LangToggle dark />
         </div>
 
-        {/* Logo + subtitle */}
-        <div className="relative z-10 px-6">
+        {/* Logo + subtitle with parallax */}
+        <div
+          className="relative z-10 px-6"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`,
+            willChange: 'transform',
+          }}
+        >
           <img src="/kg-logo.png" alt="KG Masterclass" className="h-24 mx-auto object-contain drop-shadow-lg" />
           <p className="text-blue-900/70 text-xs mt-3 tracking-widest uppercase font-semibold">{t.subtitle}</p>
         </div>
