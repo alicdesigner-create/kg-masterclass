@@ -773,7 +773,7 @@ export default function KGMasterClass() {
 
   // ── Sub-page Nav with logo (shared across all inner screens) ─────────────────
   const SubPageNav = ({ title, icon, onBack }) => (
-    <div className="sticky top-0 z-50 shadow-lg">
+    <div className="sticky top-0 shadow-lg" style={{ zIndex: 9999 }}>
       <div className="bg-blue-900 text-white py-3 px-4 flex items-center relative">
         <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition flex-shrink-0">
           <ArrowLeft size={22} />
