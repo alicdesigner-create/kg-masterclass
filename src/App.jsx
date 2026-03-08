@@ -132,6 +132,98 @@ export default function KGMasterClass() {
         ],
       },
 
+      cleaningDetails: {
+        offices: {
+          navTitle: 'Office Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Dust High-to-Low: Start at the top so debris falls to the floor.',
+            'Rag-First Spray: Spray the cloth, not the screen or keyboard.',
+            'Lift & Wipe: Clean under desk items; never wipe around them.',
+            'Key Touchpoints: Focus NABC on switches, handles, and buttons.',
+            'Liner Check: Wipe bin interiors before replacing bags to stop odors.',
+          ],
+        },
+        bathrooms: {
+          navTitle: 'Bathroom Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Sink Seams: Detail the gap between the countertop and the sink rim to remove hidden grime.',
+            'Low Areas: Clean deep behind toilets and under urinals to eliminate odors and stains.',
+            'Corner Scan: Clear all hair and dust buildup from corners during every floor cycle.',
+            'Partition Dusting: Dust the tops and edges of toilet partitions daily to prevent gray buildup.',
+            'Chrome Recovery: Use Dawn with warm water on chrome to remove oxidation and excess of polish.',
+          ],
+        },
+        kitchens: {
+          navTitle: 'Kitchen Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Bin Access: Move trash containers to clean the floor and walls behind them daily.',
+            'Wall Inspection: Wipe down food splatters and grease from walls near prep and waste areas.',
+            'Touchpoints: Disinfect refrigerator handles, microwave buttons, and coffee stations daily.',
+            'Drain Care: Pour hot water down drains and apply Enzymes if required to prevent odors and buildup.',
+            'Surface Joints: Clear all crumbs and debris from table seams and edges, especially on wooden surfaces.',
+          ],
+        },
+        windows: {
+          navTitle: 'Window Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Edge Detailing: Wipe the frame and corners first to prevent water from dripping onto clean glass.',
+            'Vertical vs. Horizontal: Wipe inside vertically and outside horizontally to identify which side has streaks.',
+            'Touch-up Check: Use a dry cloth to buff out any remaining ghosting or fingerprints in natural light.',
+            'No Direct Sun: Avoid cleaning in direct sunlight to prevent the solution from drying too fast and leaving spots.',
+            'Bottom Track: Vacuum or wipe the window tracks daily to prevent dirt buildup and jamming.',
+          ],
+        },
+        floors: {
+          navTitle: 'Floor Care',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Chemical Balance: Do not use too much cleaner; excess chemical causes streaks and sticky residue.',
+            'Water Quality: Change the mop water as soon as it looks cloudy to avoid dulling the floor.',
+            'Corner Sweeping: Use a broom or vacuum attachment to pull dirt from corners before mopping.',
+            'Stain Treatment: Address spills immediately with Top Clean to prevent permanent staining.',
+            'Edge Vacuuming: Pay extra attention to carpet edges along walls where dust and hair accumulate.',
+          ],
+        },
+        pressure_washing: {
+          navTitle: 'Pressure Washing',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Personal Protection: Use sunscreen, sunglasses, a hat, and long sleeves to protect your skin outdoors.',
+            'Freeze Prevention: Do not pressure wash if temperatures are below 32°F, as water will freeze on surfaces.',
+            'Machine Check: Inspect equipment daily for leaks or hose wear to prevent malfunctions and accidents.',
+            'Stay Hydrated: Drink water constantly; maintaining hydration is critical during outdoor physical labor.',
+            'Surrounding Safety: Clear the area of obstacles and cover sensitive outlets or delicate plants before starting.',
+          ],
+        },
+        schools: {
+          navTitle: 'Schools Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Desk Undersides: Check and remove gum or stickers from the bottom of student desks and chairs.',
+            'High-Touch Sanitizing: Focus on pencil sharpeners, water fountains, and computer keyboards daily.',
+            'Back-to-Front Mopping: Always mop from the back of the classroom toward the door to avoid footprints.',
+            'Locker Grills: Dust the top and ventilation slats of lockers where lint and debris quickly gather.',
+            'Visual Check: Look for safety hazards like loose carpet edges or broken furniture and report them immediately.',
+          ],
+        },
+        banking: {
+          navTitle: 'Banking Cleaning',
+          tipsLabel: 'Pro Tips',
+          tips: [
+            'Badge Security: Never transfer your access badge or credentials to anyone; they are for your use only.',
+            'Alarm Protocol: Always verify that the bank alarm is fully armed and the facility is secure before leaving.',
+            'Professional Image: Always wear your full uniform to ensure you are easily identified in a financial institution.',
+            'Quality Time: Invest the full time required for proper cleaning; never rush security or high-standard areas.',
+            'Sensitive Privacy: Never touch, move, or read documents on desks; treat all trash as strictly confidential.',
+            'Key Control: Do not take any bank keys off-site; they must remain in the designated secure area after your shift.',
+          ],
+        },
+      },
+
       safety: {
         navTitle: 'Safety at Work',
         topics: [
@@ -327,6 +419,98 @@ export default function KGMasterClass() {
         ],
       },
 
+      cleaningDetails: {
+        offices: {
+          navTitle: 'Limpieza de Oficinas',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'De Arriba Abajo: Comienza por arriba para que el polvo caiga al suelo.',
+            'Paño Primero: Rocía el trapo, no la pantalla ni el teclado.',
+            'Levanta y Limpia: Limpia debajo de los objetos del escritorio; nunca alrededor.',
+            'Puntos de Contacto: Usa NABC en interruptores, manijas y botones.',
+            'Revisión de Bolsas: Limpia el interior del basurero antes de colocar la bolsa nueva.',
+          ],
+        },
+        bathrooms: {
+          navTitle: 'Limpieza de Baños',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Juntas del Lavabo: Detalla la unión entre el mármol y el lavabo para eliminar suciedad oculta.',
+            'Zonas Bajas: Limpia detrás de los inodoros y bajo los urinarios para eliminar olores y manchas.',
+            'Revisión de Esquinas: Limpia acumulación de cabello y polvo en esquinas en cada ciclo.',
+            'Polvo en Divisiones: Limpia diariamente las partes superiores y bordes de los cubículos.',
+            'Recuperación de Cromo: Usa Dawn con agua tibia para eliminar oxidación y exceso de pulidor.',
+          ],
+        },
+        kitchens: {
+          navTitle: 'Limpieza de Cocinas',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Acceso al Basurero: Mueve los contenedores para limpiar el piso y las paredes detrás de ellos.',
+            'Inspección de Paredes: Limpia salpicaduras de comida y grasa en paredes cerca de las áreas de trabajo.',
+            'Puntos de Contacto: Desinfecta manijas del refrigerador, botones del microondas y cafeteras diariamente.',
+            'Cuidado del Drenaje: Vierte agua caliente y aplica Enzimas si es necesario para prevenir olores.',
+            'Juntas de Superficie: Limpia migajas y residuos en las uniones de mesas, especialmente en superficies de madera.',
+          ],
+        },
+        windows: {
+          navTitle: 'Limpieza de Ventanas',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Detalle de Bordes: Limpia el marco y las esquinas primero para evitar goteos sobre el vidrio limpio.',
+            'Vertical vs. Horizontal: Limpia por dentro en vertical y por fuera en horizontal para identificar el lado con rayas.',
+            'Revisión Final: Usa un paño seco para pulir manchas o huellas a la luz natural.',
+            'Sin Sol Directo: Evita limpiar con luz solar directa para que el líquido no seque muy rápido.',
+            'Riel Inferior: Aspira o limpia los rieles de la ventana diariamente para evitar acumulación.',
+          ],
+        },
+        floors: {
+          navTitle: 'Cuidado de Pisos',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Balance Químico: No uses demasiado limpiador; el exceso causa rayas y residuo pegajoso.',
+            'Calidad del Agua: Cambia el agua del trapeador cuando se vea turbia para no opacar el piso.',
+            'Barrer Esquinas: Usa escoba o accesorio de aspiradora para sacar suciedad de esquinas antes de trapear.',
+            'Tratamiento de Manchas: Atiende derrames de inmediato con Top Clean para evitar manchas permanentes.',
+            'Aspirado de Bordes: Presta atención especial a los bordes de alfombra junto a las paredes.',
+          ],
+        },
+        pressure_washing: {
+          navTitle: 'Limpieza a Presión',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Protección Personal: Usa bloqueador solar, lentes, gorra y manga larga para proteger tu piel al aire libre.',
+            'Prevención de Congelamiento: No uses lavado a presión si la temperatura es menor de 0°C.',
+            'Revisión del Equipo: Inspecciona diariamente fugas o desgaste en mangueras para prevenir accidentes.',
+            'Mantente Hidratado: Toma agua constantemente; la hidratación es crítica durante trabajo físico al exterior.',
+            'Seguridad del Área: Despeja obstáculos y cubre tomas eléctricas o plantas delicadas antes de comenzar.',
+          ],
+        },
+        schools: {
+          navTitle: 'Limpieza de Escuelas',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Debajo del Escritorio: Revisa y retira chicles o calcomanías del fondo de los pupitres y sillas.',
+            'Desinfección de Alto Contacto: Enfócate en sacapuntas, fuentes de agua y teclados de computadora diariamente.',
+            'Trapeado de Atrás Adelante: Siempre trapea desde el fondo del salón hacia la puerta para evitar huellas.',
+            'Rejillas de Casilleros: Limpia la parte superior y las ranuras de ventilación donde se acumula pelusa.',
+            'Revisión Visual: Busca peligros como bordes de alfombra sueltos o muebles rotos y repórtalos de inmediato.',
+          ],
+        },
+        banking: {
+          navTitle: 'Limpieza de Bancos',
+          tipsLabel: 'Consejos Pro',
+          tips: [
+            'Seguridad del Gafete: Nunca entregues tu gafete de acceso a nadie; es de uso exclusivo tuyo.',
+            'Protocolo de Alarma: Verifica siempre que la alarma del banco esté activada antes de salir.',
+            'Imagen Profesional: Usa siempre tu uniforme completo para ser fácilmente identificado en la institución.',
+            'Tiempo de Calidad: Invierte el tiempo completo necesario; nunca hagas las cosas de prisa en áreas de seguridad.',
+            'Privacidad Sensible: Nunca toques, muevas ni leas documentos en escritorios; trata toda la basura como confidencial.',
+            'Control de Llaves: No saques llaves del banco fuera del edificio; deben quedarse en el área designada.',
+          ],
+        },
+      },
+
       safety: {
         navTitle: 'Seguridad en el Trabajo',
         topics: [
@@ -447,10 +631,10 @@ export default function KGMasterClass() {
   );
 
   // ── Sub-page Nav with logo (shared across all inner screens) ─────────────────
-  const SubPageNav = ({ title, icon }) => (
+  const SubPageNav = ({ title, icon, onBack }) => (
     <div className="sticky top-0 z-10 shadow-lg">
       <div className="bg-blue-900 text-white py-3 px-4 flex items-center gap-3">
-        <button onClick={goHome} className="hover:bg-blue-800 p-2 rounded transition">
+        <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition">
           <ArrowLeft size={22} />
         </button>
         {icon && <span className="text-lg">{icon}</span>}
@@ -600,6 +784,60 @@ export default function KGMasterClass() {
     );
   };
 
+  // ── Cleaning Detail Screen ───────────────────────────────────────────────────
+  const renderCleaningDetail = (subId) => {
+    const detail = t.cleaningDetails[subId];
+    if (!detail) return null;
+    return (
+      <div className="min-h-screen bg-slate-50 pb-20">
+        <SubPageNav
+          title={detail.navTitle}
+          onBack={() => navigateTo('cleaning')}
+        />
+
+        <div className="max-w-2xl mx-auto px-5 pt-6 space-y-6">
+
+          {/* ── Video Placeholder ── */}
+          <div className="rounded-2xl overflow-hidden border-2 border-dashed border-blue-200 bg-blue-50 flex flex-col items-center justify-center gap-3 py-14">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+              <span className="text-3xl">▶️</span>
+            </div>
+            <p className="text-blue-400 font-semibold text-sm">Video coming soon</p>
+          </div>
+
+          {/* ── Tips ── */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-5 py-4">
+              <h2 className="text-white font-bold text-base uppercase tracking-widest">
+                {detail.tipsLabel}
+              </h2>
+            </div>
+            <ul className="divide-y divide-gray-50">
+              {detail.tips.map((tip, idx) => {
+                const [bold, ...rest] = tip.split(':');
+                const hasColon = tip.includes(':');
+                return (
+                  <li key={idx} className="flex items-start gap-4 px-5 py-4">
+                    <span className="mt-0.5 flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                      <span className="text-green-600 text-xs font-bold">✓</span>
+                    </span>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {hasColon
+                        ? <><strong className="text-blue-900">{bold}:</strong>{rest.join(':')}</>
+                        : tip}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+        </div>
+        <PageFooter />
+      </div>
+    );
+  };
+
   // ── Cleaning Screen ──────────────────────────────────────────────────────────
   const renderCleaning = () => {
     const c = t.cleaning;
@@ -612,6 +850,7 @@ export default function KGMasterClass() {
             {c.subCategories.map((sub) => (
               <button
                 key={sub.id}
+                onClick={() => navigateTo(`cleaning-${sub.id}`)}
                 className="bg-white rounded-xl shadow-md p-5 flex flex-col items-center gap-3 hover:shadow-lg hover:scale-105 transition-all border border-gray-100"
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-800 to-blue-900 rounded-full flex items-center justify-center shadow-md">
@@ -1067,7 +1306,15 @@ export default function KGMasterClass() {
   switch (currentScreen) {
     case 'registration': return renderRegistration();
     case 'kgfs':         return renderKGFS();
-    case 'cleaning':     return renderCleaning();
+    case 'cleaning':              return renderCleaning();
+    case 'cleaning-offices':      return renderCleaningDetail('offices');
+    case 'cleaning-bathrooms':    return renderCleaningDetail('bathrooms');
+    case 'cleaning-kitchens':     return renderCleaningDetail('kitchens');
+    case 'cleaning-windows':      return renderCleaningDetail('windows');
+    case 'cleaning-floors':       return renderCleaningDetail('floors');
+    case 'cleaning-pressure_washing': return renderCleaningDetail('pressure_washing');
+    case 'cleaning-schools':      return renderCleaningDetail('schools');
+    case 'cleaning-banking':      return renderCleaningDetail('banking');
     case 'safety':       return renderTopics(t.safety.navTitle,    '⚠️', t.safety.topics);
     case 'equipment':    return renderTopics(t.equipment.navTitle, '🔧', t.equipment.topics);
     case 'chemicals':    return renderChemicals();
