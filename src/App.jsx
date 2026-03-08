@@ -1215,7 +1215,7 @@ export default function KGMasterClass() {
         <div className="p-4 max-w-2xl mx-auto space-y-6">
           {/* Section 1 — Product grid */}
           <div>
-            <h3 className="text-blue-900 font-bold text-base uppercase tracking-wide mb-3 px-1">
+            <h3 className="text-emerald-800 font-bold text-base uppercase tracking-wide mb-3 px-1">
               {c.section1.title}
             </h3>
             <div className="grid grid-cols-2 gap-3">
@@ -1223,7 +1223,7 @@ export default function KGMasterClass() {
                 <button
                   key={product.id}
                   onClick={() => setSelectedChemical(product)}
-                  className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition-all bg-gray-100"
+                  className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition-all bg-gray-100"
                   style={{ height: '180px' }}
                 >
                   <img
@@ -1234,7 +1234,7 @@ export default function KGMasterClass() {
                   />
                   <div
                     className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
-                    style={{ height: '30%', backgroundColor: 'rgba(30, 58, 138, 0.92)' }}
+                    style={{ height: '30%', backgroundColor: 'rgba(4, 120, 87, 0.92)' }}
                   >
                     <p className="text-white font-bold text-sm text-center leading-tight px-2">{product.name}</p>
                   </div>
@@ -1245,23 +1245,23 @@ export default function KGMasterClass() {
 
           {/* Section 2 — Chemical Safety list */}
           <div>
-            <h3 className="text-blue-900 font-bold text-base uppercase tracking-wide mb-3 px-1">
+            <h3 className="text-emerald-800 font-bold text-base uppercase tracking-wide mb-3 px-1">
               {c.section2.title}
             </h3>
             <div className="space-y-3">
               {c.section2.topics.map((topic, idx) => (
                 <button
                   key={idx}
-                  className="w-full bg-white rounded-xl shadow-md p-5 flex items-center gap-4 hover:shadow-lg hover:scale-105 transition-all border border-gray-100 text-left"
+                  className="w-full bg-white rounded-2xl shadow-sm p-5 flex items-center gap-4 hover:shadow-md hover:border-emerald-200 transition-all border border-gray-100 text-left"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 shadow">
+                  <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow">
                     <span className="text-white font-bold text-sm">{idx + 1}</span>
                   </div>
                   <div className="flex-grow">
-                    <p className="text-blue-900 font-semibold">{topic.title}</p>
+                    <p className="text-emerald-900 font-semibold">{topic.title}</p>
                     <p className="text-gray-500 text-xs mt-0.5">{topic.description}</p>
                   </div>
-                  <ChevronRight className="text-blue-300 flex-shrink-0" size={18} />
+                  <ChevronRight className="text-emerald-300 flex-shrink-0" size={18} />
                 </button>
               ))}
             </div>
