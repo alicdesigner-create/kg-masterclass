@@ -554,7 +554,7 @@ export default function KGMasterClass() {
 
           {/* ── Logo + Founders ── */}
           <div className="flex flex-col items-center gap-1">
-            <img src="/kg-logo-mean.png?v=2" alt="KG Logo" className="h-28 object-contain" />
+            <img src="/kg-logo-mean1.png" alt="KG Logo" className="h-28 object-contain" />
             <p className="text-blue-900 font-semibold text-sm">{k.founders}</p>
             <p className="text-gray-400 text-xs">{k.foundersLabel}</p>
           </div>
