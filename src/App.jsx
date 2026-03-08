@@ -1024,6 +1024,7 @@ export default function KGMasterClass() {
 
   const cleaningImages = {
     schools: ['/school-cleaning-1.jpg', '/school-cleaning-2.jpg', '/school-cleaning-3.jpg'],
+    banking: ['/bank-cleaning-1.jpg', '/bank-cleaning-2.jpg', '/bank-cleaning-3.jpg'],
   };
 
   const getYouTubeId = (url) => {
