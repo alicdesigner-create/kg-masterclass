@@ -800,7 +800,10 @@ export default function KGMasterClass() {
               >
                 <div className="flex items-center gap-4 px-4 py-3">
                   <div className="flex-shrink-0 w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center shadow-md">
-                    <Icon size={22} className="text-white" />
+                    {id === 'chemicals'
+                      ? <img src="/spray-bottle.svg" alt="Chemicals" className="w-7 h-7 object-contain" />
+                      : <Icon size={22} className="text-white" />
+                    }
                   </div>
                   <div className="flex-grow">
                     <h3 className="text-gray-900 font-bold text-base leading-tight">{title}</h3>
