@@ -773,21 +773,26 @@ export default function KGMasterClass() {
 
   // ── Sub-page Nav with logo (shared across all inner screens) ─────────────────
   const SubPageNav = ({ title, icon, onBack }) => (
-    <div className="sticky top-0 shadow-lg" style={{ zIndex: 9999 }}>
-      <div className="bg-blue-900 text-white py-3 px-4 flex items-center relative">
-        <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition flex-shrink-0">
-          <ArrowLeft size={22} />
-        </button>
-        <div className="absolute left-0 right-0 flex items-center justify-center gap-2 pointer-events-none">
-          {icon && <span className="text-lg">{icon}</span>}
-          <h2 className="font-bold text-base">{title}</h2>
+    <>
+      {/* Fixed bar — always on top of everything */}
+      <div className="fixed top-0 left-0 right-0 shadow-lg" style={{ zIndex: 9999 }}>
+        <div className="bg-blue-900 text-white py-3 px-4 flex items-center relative">
+          <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition flex-shrink-0">
+            <ArrowLeft size={22} />
+          </button>
+          <div className="absolute left-0 right-0 flex items-center justify-center gap-2 pointer-events-none">
+            {icon && <span className="text-lg">{icon}</span>}
+            <h2 className="font-bold text-base">{title}</h2>
+          </div>
+          <div className="ml-auto flex-shrink-0"><LangToggle /></div>
         </div>
-        <div className="ml-auto flex-shrink-0"><LangToggle /></div>
+        <div className="bg-white border-b border-gray-100 py-2.5 text-center">
+          <img src="/kg-logo.png" alt="KG Masterclass" className="h-11 mx-auto object-contain" />
+        </div>
       </div>
-      <div className="bg-white border-b border-gray-100 py-2.5 text-center">
-        <img src="/kg-logo.png" alt="KG Masterclass" className="h-11 mx-auto object-contain" />
-      </div>
-    </div>
+      {/* Spacer to offset fixed nav height (~118px) */}
+      <div className="h-[118px]" />
+    </>
   );
 
   // ── Home Screen ──────────────────────────────────────────────────────────────
