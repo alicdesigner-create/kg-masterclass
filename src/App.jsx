@@ -773,26 +773,21 @@ export default function KGMasterClass() {
 
   // ── Sub-page Nav with logo (shared across all inner screens) ─────────────────
   const SubPageNav = ({ title, icon, onBack }) => (
-    <>
-      {/* Fixed bar — always on top of everything */}
-      <div className="fixed top-0 left-0 right-0 shadow-lg" style={{ zIndex: 9999 }}>
-        <div className="bg-blue-900 text-white py-3 px-4 flex items-center relative">
-          <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition flex-shrink-0">
-            <ArrowLeft size={22} />
-          </button>
-          <div className="absolute left-0 right-0 flex items-center justify-center gap-2 pointer-events-none">
-            {icon && <span className="text-lg">{icon}</span>}
-            <h2 className="font-bold text-base">{title}</h2>
-          </div>
-          <div className="ml-auto flex-shrink-0"><LangToggle /></div>
+    <div className="w-full shadow-lg flex-shrink-0">
+      <div className="bg-blue-900 text-white py-3 px-4 flex items-center relative">
+        <button onClick={onBack ?? goHome} className="hover:bg-blue-800 p-2 rounded transition flex-shrink-0">
+          <ArrowLeft size={22} />
+        </button>
+        <div className="absolute left-0 right-0 flex items-center justify-center gap-2 pointer-events-none">
+          {icon && <span className="text-lg">{icon}</span>}
+          <h2 className="font-bold text-base">{title}</h2>
         </div>
-        <div className="bg-white border-b border-gray-100 py-2.5 text-center">
-          <img src="/kg-logo.png" alt="KG Masterclass" className="h-11 mx-auto object-contain" />
-        </div>
+        <div className="ml-auto flex-shrink-0"><LangToggle /></div>
       </div>
-      {/* Spacer to offset fixed nav height (~118px) */}
-      <div className="h-[118px]" />
-    </>
+      <div className="bg-white border-b border-gray-100 py-2.5 text-center">
+        <img src="/kg-logo.png" alt="KG Masterclass" className="h-11 mx-auto object-contain" />
+      </div>
+    </div>
   );
 
   // ── Home Screen ──────────────────────────────────────────────────────────────
@@ -920,8 +915,9 @@ export default function KGMasterClass() {
     const parts = k.description.split(/(1995|KG Facility Solutions)/g);
 
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav title={k.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-blue-900 to-blue-700" Icon={Building2} />
 
         <div className="max-w-2xl mx-auto px-5 pt-6 pb-4 space-y-6">
@@ -983,6 +979,7 @@ export default function KGMasterClass() {
 
         </div>
         <PageFooter />
+        </div>
       </div>
     );
   };
@@ -1006,11 +1003,12 @@ export default function KGMasterClass() {
     const detail = t.cleaningDetails[subId];
     if (!detail) return null;
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav
           title={detail.navTitle}
           onBack={() => navigateTo('cleaning')}
         />
+        <div className="flex-1 overflow-y-auto pb-20">
         {(() => { const SubIcon = cleaningSubIcons[subId]; return <PageHero gradient="bg-gradient-to-br from-sky-600 to-sky-400" Icon={SubIcon} />; })()}
 
         <div className="max-w-2xl mx-auto px-5 pt-6 space-y-6">
@@ -1071,6 +1069,7 @@ export default function KGMasterClass() {
 
         </div>
         <PageFooter />
+        </div>
       </div>
     );
   };
@@ -1079,8 +1078,9 @@ export default function KGMasterClass() {
   const renderCleaning = () => {
     const c = t.cleaning;
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav title={c.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-sky-600 to-sky-400" Icon={Sparkles} />
         <div className="p-6 max-w-2xl mx-auto">
           <p className="text-gray-600 text-sm mb-6 text-center">{c.intro}</p>
@@ -1117,6 +1117,7 @@ export default function KGMasterClass() {
           </div>
         </div>
         <PageFooter />
+        </div>
       </div>
     );
   };
@@ -1126,12 +1127,13 @@ export default function KGMasterClass() {
     const detail = t.safetyDetails[topicId];
     if (!detail) return null;
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav
           title={detail.navTitle}
           icon="🛡️"
           onBack={() => navigateTo('safety')}
         />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-red-600 to-red-400" Icon={Shield} />
 
         <div className="max-w-2xl mx-auto px-5 pt-6 space-y-6">
@@ -1164,14 +1166,17 @@ export default function KGMasterClass() {
 
         </div>
         <PageFooter />
+        </div>
+        </div>
       </div>
     );
   };
 
   // ── Generic Topics Screen (Safety / Equipment) ────────────────────────────────
   const renderTopics = (navTitle, icon, topics, onTopicClick, heroGradient, HeroIcon) => (
-    <div className="min-h-screen bg-slate-50 pb-20">
+    <div className="h-screen flex flex-col bg-slate-50">
       <SubPageNav title={navTitle} icon={icon} />
+      <div className="flex-1 overflow-y-auto pb-20">
       {heroGradient && HeroIcon && <PageHero gradient={heroGradient} Icon={HeroIcon} />}
 
       <div className="p-6 max-w-2xl mx-auto space-y-3">
@@ -1193,6 +1198,7 @@ export default function KGMasterClass() {
         ))}
       </div>
       <PageFooter />
+      </div>
     </div>
   );
 
@@ -1214,8 +1220,9 @@ export default function KGMasterClass() {
     const c = t.chemicals;
     const chemicalProducts = chemicalProductBase.map(p => ({ ...p, description: c.descriptions[p.id] }));
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav title={c.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-emerald-700 to-emerald-500" svgSrc="/spray-bottle.svg" />
         <div className="p-4 max-w-2xl mx-auto space-y-6">
           {/* Section 1 — Product grid */}
@@ -1307,6 +1314,7 @@ export default function KGMasterClass() {
             </div>
           </div>
         )}
+        </div>
       </div>
     );
   };
@@ -1315,8 +1323,9 @@ export default function KGMasterClass() {
   const renderStandards = () => {
     const s = t.standards;
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav title={s.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-violet-700 to-violet-500" Icon={Star} />
         <div className="p-6 max-w-2xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-6">
@@ -1340,6 +1349,7 @@ export default function KGMasterClass() {
           </div>
         </div>
         <PageFooter />
+        </div>
       </div>
     );
   };
@@ -1353,8 +1363,9 @@ export default function KGMasterClass() {
       { name: 'Rolando Hernández', photo: '/managers/rolando.jpg', tel: 'tel:7209552814',  display: '720-955-2814' },
     ];
     return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 pb-8">
+      <div className="h-screen flex flex-col bg-gradient-to-b from-slate-900 to-slate-800">
         <SubPageNav title={c.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-8">
         <div className="px-4 pt-8 pb-6 max-w-lg mx-auto space-y-8">
 
           {/* ── Office card ── */}
@@ -1406,6 +1417,7 @@ export default function KGMasterClass() {
 
         </div>
       <PageFooter />
+        </div>
       </div>
     );
   };
@@ -1571,8 +1583,9 @@ export default function KGMasterClass() {
   const renderResources = () => {
     const res = t.resources;
     return (
-      <div className="min-h-screen bg-slate-50 pb-20">
+      <div className="h-screen flex flex-col bg-slate-50">
         <SubPageNav title={res.navTitle} />
+        <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-slate-600 to-slate-400" Icon={FolderOpen} />
         <div className="p-6 max-w-2xl mx-auto space-y-3">
           {res.items.map((item, idx) => (
@@ -1592,6 +1605,7 @@ export default function KGMasterClass() {
           ))}
         </div>
         <PageFooter />
+        </div>
       </div>
     );
   };
