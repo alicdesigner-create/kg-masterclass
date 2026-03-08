@@ -913,11 +913,6 @@ export default function KGMasterClass() {
 
           {/* ── Tips ── */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-5 py-4">
-              <h2 className="text-white font-bold text-base uppercase tracking-widest">
-                {detail.tipsLabel}
-              </h2>
-            </div>
             <ul className="divide-y divide-gray-50">
               {detail.tips.map((tip, idx) => {
                 const [bold, ...rest] = tip.split(':');
@@ -996,11 +991,6 @@ export default function KGMasterClass() {
 
           {/* ── Detail Points ── */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-5 py-4">
-              <h2 className="text-white font-bold text-base uppercase tracking-widest">
-                {detail.navTitle}
-              </h2>
-            </div>
             <ul className="divide-y divide-gray-50">
               {detail.points.map((point, idx) => (
                 <li key={idx} className="flex items-start gap-4 px-5 py-4">
