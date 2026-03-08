@@ -757,7 +757,7 @@ export default function KGMasterClass() {
 
   // ── Page Hero Banner (shown below SubPageNav on inner screens) ───────────────
   const PageHero = ({ gradient, Icon, svgSrc }) => (
-    <div className={`relative ${gradient} px-6 py-8 text-center overflow-hidden`}>
+    <div className={`relative z-0 ${gradient} px-6 py-8 text-center overflow-hidden`}>
       <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10" />
       <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-full bg-white/10" />
       <div className="absolute top-6 left-8 w-10 h-10 rounded-full bg-white/5" />
