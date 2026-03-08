@@ -240,9 +240,10 @@ export default function KGMasterClass() {
         uniform: {
           navTitle: 'Uniform Requirements',
           points: [
-            { label: 'Standard',  text: 'Clean company-issued shirt and durable work pants.' },
-            { label: 'Footwear',  text: 'Mandatory closed-toe, waterproof, non-slip shoes.' },
-            { label: 'Safety',    text: 'No dangling jewelry or loose clothing to prevent snagging.' },
+            { label: 'Standard',              text: 'Clean company-issued shirt and durable work pants.' },
+            { label: 'Footwear',              text: 'Mandatory closed-toe, waterproof, non-slip shoes.' },
+            { label: 'Personal Presentation', text: 'Maintain a professional appearance by being well-groomed. Ensure your uniform is clean, wrinkle-free, and tucked in. Personal hygiene must be managed daily to reflect the high standards of our service and respect for the client\'s environment.' },
+            { label: 'Safety',                text: 'No dangling jewelry or loose clothing to prevent snagging.' },
           ],
         },
         osha: {
@@ -578,9 +579,10 @@ export default function KGMasterClass() {
         uniform: {
           navTitle: 'Requisitos de Uniforme',
           points: [
-            { label: 'Estándar',   text: 'Camisa de la empresa limpia y pantalón de trabajo resistente.' },
-            { label: 'Calzado',    text: 'Zapatos cerrados, impermeables y antideslizantes obligatorios.' },
-            { label: 'Seguridad',  text: 'Sin joyería colgante ni ropa suelta para evitar enganches.' },
+            { label: 'Estándar',               text: 'Camisa de la empresa limpia y pantalón de trabajo resistente.' },
+            { label: 'Calzado',                text: 'Zapatos cerrados, impermeables y antideslizantes obligatorios.' },
+            { label: 'Presentación Personal',  text: 'Mantén una apariencia profesional cuidando tu imagen. Asegúrate de que tu uniforme esté limpio, sin arrugas y bien puesto. La higiene personal debe atenderse diariamente para reflejar los altos estándares de nuestro servicio y el respeto por el entorno del cliente.' },
+            { label: 'Seguridad',              text: 'Sin joyería colgante ni ropa suelta para evitar enganches.' },
           ],
         },
         osha: {
