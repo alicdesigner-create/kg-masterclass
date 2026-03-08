@@ -799,8 +799,10 @@ export default function KGMasterClass() {
 
         {/* Logo + subtitle */}
         <div className="relative z-10 px-6">
-          <img src="/kg-logo.png" alt="KG Masterclass" className="h-24 mx-auto object-contain drop-shadow-2xl" />
-          <p className="text-white/70 text-xs mt-3 tracking-widest uppercase font-semibold">{t.subtitle}</p>
+          <div className="bg-white rounded-3xl px-8 py-5 mx-auto inline-block shadow-2xl">
+            <img src="/kg-logo.png" alt="KG Masterclass" className="h-20 mx-auto object-contain" />
+          </div>
+          <p className="text-white/70 text-xs mt-4 tracking-widest uppercase font-semibold">{t.subtitle}</p>
         </div>
 
         {/* Curved bottom */}
