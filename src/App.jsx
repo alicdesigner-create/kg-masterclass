@@ -344,7 +344,7 @@ export default function KGMasterClass() {
             { label: 'Usage', text: 'Use the color-coded system to prevent cross-contamination:', subPoints: [
               { label: 'Blue',  color: '#60a5fa', text: 'Designated for glass surfaces, windows, and mirrors.' },
               { label: 'Green', color: '#4ade80', text: 'For general surfaces such as desks, tables, counters, and furniture.' },
-              { label: 'Pink',  color: '#f9a8d4', text: 'Reserved for high-risk or sanitary areas requiring extra precautions.' },
+              { label: 'Pink',  color: '#f9a8d4', text: 'Designated exclusively for restrooms and bathroom surfaces.' },
             ]},
             { label: 'Maintenance', text: 'At the end of your shift, place all used cloths in the designated laundry bin.' },
             { label: 'Care',        text: 'Ensure you remove any large debris before depositing them for centralized washing.' },
@@ -725,7 +725,7 @@ export default function KGMasterClass() {
             { label: 'Uso', text: 'Usa el sistema de colores para evitar la contaminación cruzada:', subPoints: [
               { label: 'Azul',   color: '#60a5fa', text: 'Designado para superficies de vidrio, ventanas y espejos.' },
               { label: 'Verde',  color: '#4ade80', text: 'Para superficies generales como escritorios, mesas, mostradores y muebles.' },
-              { label: 'Rosado', color: '#f9a8d4', text: 'Reservado para áreas de alto riesgo o sanitarias que requieren precauciones adicionales.' },
+              { label: 'Rosado', color: '#f9a8d4', text: 'Designado exclusivamente para baños y superficies sanitarias.' },
             ]},
             { label: 'Mantenimiento', text: 'Al final de tu turno, coloca todos los trapos usados en el contenedor de lavandería designado.' },
             { label: 'Cuidado',       text: 'Asegúrate de retirar los residuos grandes antes de depositarlos para el lavado centralizado.' },
