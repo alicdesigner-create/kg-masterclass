@@ -997,17 +997,17 @@ export default function KGMasterClass() {
     </div>
   );
 
-  // ── Section Title (icon + text, centered below nav) ─────────────────────────
+  // ── Section Title — sticky below nav, solid bg, divider line ────────────────
   const PageHero = ({ gradient, Icon, svgSrc, title }) => (
-    <div className="px-4 pt-5 pb-1 flex justify-center">
+    <div className="sticky top-0 z-10 bg-slate-50 border-b border-gray-200 px-4 py-3 flex justify-center">
       <div className="flex items-center gap-3">
-        <div className={`w-12 h-12 ${gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md`}>
+        <div className={`w-10 h-10 ${gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
           {svgSrc
-            ? <img src={svgSrc} className="w-6 h-6 object-contain" alt="" />
-            : Icon && <Icon size={22} className="text-white" />
+            ? <img src={svgSrc} className="w-5 h-5 object-contain" alt="" />
+            : Icon && <Icon size={19} className="text-white" />
           }
         </div>
-        {title && <h1 className="text-blue-900 font-bold text-xl leading-tight">{title}</h1>}
+        {title && <h1 className="text-blue-900 font-bold text-lg leading-tight">{title}</h1>}
       </div>
     </div>
   );
