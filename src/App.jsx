@@ -346,7 +346,11 @@ export default function KGMasterClass() {
             { label: 'Care',        text: 'Ensure you remove any large debris before depositing them for centralized washing.' },
           ]},
           { title: 'Mop Heads', points: [
-            { label: 'Usage',       text: 'Select the correct mop color for your assigned area and secure it firmly to the handle before applying chemicals.' },
+            { label: 'Usage', text: 'Select the correct mop color for your assigned area and secure it firmly to the handle before applying chemicals.', subPoints: [
+              { label: 'Blue',  color: '#60a5fa', text: 'Use for low-risk areas such as offices, hallways, receptions, and conference rooms.' },
+              { label: 'Green', color: '#4ade80', text: 'Reserved for general cleaning areas or as determined by specific facility protocols.' },
+              { label: 'Pink',  color: '#f9a8d4', text: 'Exclusive for restrooms and high-risk sanitary areas.' },
+            ]},
             { label: 'Maintenance', text: 'Once the job is finished, place dirty mop heads in the textile collection area for professional laundering.' },
             { label: 'Care',        text: 'Never store damp mops in closed closets; leave them in the collection area to allow for proper airflow.' },
           ]},
@@ -719,7 +723,11 @@ export default function KGMasterClass() {
             { label: 'Cuidado',       text: 'Asegúrate de retirar los residuos grandes antes de depositarlos para el lavado centralizado.' },
           ]},
           { title: 'Cabezales de Trapeador', points: [
-            { label: 'Uso',           text: 'Selecciona el color de trapeador correcto para tu área asignada y asegúralo firmemente al mango antes de aplicar químicos.' },
+            { label: 'Uso', text: 'Selecciona el color de trapeador correcto para tu área asignada y asegúralo firmemente al mango antes de aplicar químicos.', subPoints: [
+              { label: 'Azul',   color: '#60a5fa', text: 'Úsalo en áreas de bajo riesgo como oficinas, pasillos, recepciones y salas de conferencias.' },
+              { label: 'Verde',  color: '#4ade80', text: 'Reservado para áreas de limpieza general o según los protocolos específicos de la instalación.' },
+              { label: 'Rosado', color: '#f9a8d4', text: 'Exclusivo para baños y áreas sanitarias de alto riesgo.' },
+            ]},
             { label: 'Mantenimiento', text: 'Una vez terminado el trabajo, coloca los cabezales sucios en el área de recolección textil para lavado profesional.' },
             { label: 'Cuidado',       text: 'Nunca guardes trapeadores húmedos en closets cerrados; déjalos en el área de recolección para permitir una ventilación adecuada.' },
           ]},
@@ -1298,6 +1306,18 @@ export default function KGMasterClass() {
                       <div key={pIdx}>
                         <p className="text-orange-500 font-bold text-xs uppercase tracking-wide">{point.label}</p>
                         <p className="text-gray-600 text-xs leading-relaxed mt-0.5">{point.text}</p>
+                        {point.subPoints && (
+                          <div className="mt-1.5 space-y-1">
+                            {point.subPoints.map((sp, spIdx) => (
+                              <div key={spIdx} className="flex gap-1.5 items-start">
+                                <div className="w-2 h-2 rounded-full mt-1 flex-shrink-0" style={{ backgroundColor: sp.color }} />
+                                <p className="text-gray-600 text-xs leading-relaxed">
+                                  <span className="font-semibold">{sp.label}:</span> {sp.text}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
