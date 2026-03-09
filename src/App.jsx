@@ -1240,7 +1240,12 @@ export default function KGMasterClass() {
 
   // ── Safety Detail Screen ─────────────────────────────────────────────────────
   const safetyImages = {
-    uniform: '/safety/uniform.jpg',
+    uniform:    '/safety/uniform.jpg',
+    osha:       '/safety/osha.jpg',
+    biohazards: '/safety/biohazards.jpg',
+    height:     '/safety/height.jpg',
+    tripping:   '/safety/tripping.jpg',
+    ppe:        '/safety/ppe.jpg',
   };
 
   const renderSafety = () => {
