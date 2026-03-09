@@ -341,7 +341,11 @@ export default function KGMasterClass() {
         navTitle: 'Equipment',
         items: [
           { title: 'Microfiber Cloths (Rags)', points: [
-            { label: 'Usage',       text: 'Use the color-coded system to prevent cross-contamination: blue for glass, green for general surfaces, and pink for high-risk areas.' },
+            { label: 'Usage', text: 'Use the color-coded system to prevent cross-contamination:', subPoints: [
+              { label: 'Blue',  color: '#60a5fa', text: 'Designated for glass surfaces, windows, and mirrors.' },
+              { label: 'Green', color: '#4ade80', text: 'For general surfaces such as desks, tables, counters, and furniture.' },
+              { label: 'Pink',  color: '#f9a8d4', text: 'Reserved for high-risk or sanitary areas requiring extra precautions.' },
+            ]},
             { label: 'Maintenance', text: 'At the end of your shift, place all used cloths in the designated laundry bin.' },
             { label: 'Care',        text: 'Ensure you remove any large debris before depositing them for centralized washing.' },
           ]},
@@ -354,13 +358,13 @@ export default function KGMasterClass() {
             { label: 'Maintenance', text: 'Once the job is finished, place dirty mop heads in the textile collection area for professional laundering.' },
             { label: 'Care',        text: 'Never store damp mops in closed closets; leave them in the collection area to allow for proper airflow.' },
           ]},
-          { title: 'ProTeam Backpack & Upright Vacuums', points: [
+          { title: 'Backpack & Upright Vacuums', points: [
             { label: 'Usage — Backpack', text: 'Adjust the harness to your hips and keep the power cord visible behind you at all times.' },
             { label: 'Usage — Upright',  text: 'Adjust the head height based on the carpet thickness to protect the motor.' },
-            { label: 'Maintenance',      text: 'Check the ProTeam filter bag and replace it if it is 2/3 full to maintain strong suction power.' },
+            { label: 'Maintenance',      text: 'Check the filter bag and replace it if it is 2/3 full to maintain strong suction power.' },
             { label: 'Care',             text: 'Regularly clean the rotating brush (beater bar) to remove hair or strings that may block the movement.' },
           ]},
-          { title: 'Auto Scrubber Machines (Minuteman & E20 Sport)', points: [
+          { title: 'Auto Scrubber Machines', points: [
             { label: 'Usage',       text: 'Fill the solution tank with the exact chemical and water mixture as specified in the equipment manual. Operate at a steady speed to ensure the vacuum system picks up all moisture in a single pass.' },
             { label: 'Maintenance', text: 'Completely empty and rinse the recovery tank after every use to prevent sediment buildup and bad odors.' },
             { label: 'Care',        text: 'Remove the pads or brushes and clean the squeegee blade to guarantee perfect drying for the next shift.' },
@@ -718,7 +722,11 @@ export default function KGMasterClass() {
         navTitle: 'Equipos',
         items: [
           { title: 'Trapos de Microfibra', points: [
-            { label: 'Uso',           text: 'Usa el sistema de colores para evitar la contaminación cruzada: azul para vidrios, verde para superficies generales y rosado para áreas de alto riesgo.' },
+            { label: 'Uso', text: 'Usa el sistema de colores para evitar la contaminación cruzada:', subPoints: [
+              { label: 'Azul',   color: '#60a5fa', text: 'Designado para superficies de vidrio, ventanas y espejos.' },
+              { label: 'Verde',  color: '#4ade80', text: 'Para superficies generales como escritorios, mesas, mostradores y muebles.' },
+              { label: 'Rosado', color: '#f9a8d4', text: 'Reservado para áreas de alto riesgo o sanitarias que requieren precauciones adicionales.' },
+            ]},
             { label: 'Mantenimiento', text: 'Al final de tu turno, coloca todos los trapos usados en el contenedor de lavandería designado.' },
             { label: 'Cuidado',       text: 'Asegúrate de retirar los residuos grandes antes de depositarlos para el lavado centralizado.' },
           ]},
@@ -731,13 +739,13 @@ export default function KGMasterClass() {
             { label: 'Mantenimiento', text: 'Una vez terminado el trabajo, coloca los cabezales sucios en el área de recolección textil para lavado profesional.' },
             { label: 'Cuidado',       text: 'Nunca guardes trapeadores húmedos en closets cerrados; déjalos en el área de recolección para permitir una ventilación adecuada.' },
           ]},
-          { title: 'Aspiradoras ProTeam de Mochila y Verticales', points: [
+          { title: 'Aspiradoras de Mochila y Verticales', points: [
             { label: 'Uso — Mochila',  text: 'Ajusta el arnés a tus caderas y mantén el cable de alimentación visible detrás de ti en todo momento.' },
             { label: 'Uso — Vertical', text: 'Ajusta la altura del cabezal según el grosor de la alfombra para proteger el motor.' },
-            { label: 'Mantenimiento',  text: 'Revisa la bolsa de filtro ProTeam y reemplázala si está 2/3 llena para mantener una succión potente.' },
+            { label: 'Mantenimiento',  text: 'Revisa la bolsa de filtro y reemplázala si está 2/3 llena para mantener una succión potente.' },
             { label: 'Cuidado',        text: 'Limpia regularmente el cepillo giratorio (batidor) para eliminar cabello o hilos que puedan bloquear el movimiento.' },
           ]},
-          { title: 'Máquinas Auto Scrubber (Minuteman & E20 Sport)', points: [
+          { title: 'Máquinas Auto Scrubber', points: [
             { label: 'Uso',           text: 'Llena el tanque con la mezcla exacta de químico y agua según el manual. Opera a velocidad constante para que el sistema de vacío recoja toda la humedad en un solo paso.' },
             { label: 'Mantenimiento', text: 'Vacía y enjuaga completamente el tanque de recuperación después de cada uso para evitar sedimentos y malos olores.' },
             { label: 'Cuidado',       text: 'Retira los almohadillas o cepillos y limpia la escobilla de secado para garantizar un secado perfecto en el siguiente turno.' },
@@ -1283,7 +1291,7 @@ export default function KGMasterClass() {
   const equipmentImages = [
     { image: '/equipo/rags.jpg',             imgPosition: 'center' },
     { image: '/equipo/mops.jpg',             imgPosition: 'center' },
-    { image: '/equipo/backpack-vacuums.jpg', imgPosition: 'center' },
+    { image: '/equipo/vacuums.jpg',          imgPosition: 'center' },
     { image: '/equipo/auto-scrubbers.jpg',   imgPosition: 'center' },
   ];
 
