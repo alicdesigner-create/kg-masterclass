@@ -1399,7 +1399,7 @@ export default function KGMasterClass() {
                         }, 50);
                       }
                     }}
-                    className="w-full p-4 flex items-center gap-3 hover:bg-red-50 transition-colors text-left"
+                    className={`w-full p-4 flex items-center gap-3 transition-colors text-left ${isOpen ? 'bg-pink-100' : 'hover:bg-red-50'}`}
                   >
                     <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow text-lg">
                       {icons[topic.id]}
