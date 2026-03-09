@@ -39,6 +39,7 @@ export default function KGMasterClass() {
   const [selectedChemical, setSelectedChemical] = useState(null);
   const [openSafetyTopic, setOpenSafetyTopic] = useState(null);
   const [openSafetyItem, setOpenSafetyItem] = useState(null);
+  const [openResourceItem, setOpenResourceItem] = useState(null);
   const [userInfo, setUserInfo] = useState({ name: '', phone: '', role: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
@@ -445,6 +446,12 @@ export default function KGMasterClass() {
 
       resources: {
         navTitle: 'Other Resources',
+        appsDesc: [
+          'Photo evidence with geolocation.',
+          'Shift scheduling and attendance management.',
+          'HR, payroll, and employee benefits.',
+          'Quality control inspections.',
+        ],
         items: [
           { icon: '📱', title: 'My Applications',                          description: 'Access your work apps and platforms' },
           { icon: '📖', title: 'How to get the Employee Handbook on Trinet?', description: 'Step-by-step guide to download your handbook' },
@@ -835,6 +842,12 @@ export default function KGMasterClass() {
 
       resources: {
         navTitle: 'Otros Recursos',
+        appsDesc: [
+          'Registro de evidencia fotográfica con geolocalización.',
+          'Gestión de turnos y asistencia.',
+          'Recursos humanos, nómina y beneficios.',
+          'Inspecciones de control de calidad.',
+        ],
         items: [
           { icon: '📱', title: 'Mis Aplicaciones',                                    description: 'Accede a tus apps y plataformas de trabajo' },
           { icon: '📖', title: '¿Cómo obtener el Handbook de empleado en Trinet?',    description: 'Guía paso a paso para descargar tu handbook' },
@@ -1904,6 +1917,13 @@ export default function KGMasterClass() {
   };
 
   // ── Resources Screen ─────────────────────────────────────────────────────────
+  const appsList = [
+    { icon: '📷', name: 'Timestamp Camera', android: 'https://play.google.com/store/apps/details?id=com.jeyluta.timestampcamerafree', ios: 'https://apps.apple.com/us/app/timestamp-camera-basic/id840110184' },
+    { icon: '🗓️', name: 'Zoho Shifts',       android: 'https://play.google.com/store/apps/details?id=com.zoho.shifts',              ios: 'https://apps.apple.com/us/app/zoho-shifts/id1517003168' },
+    { icon: '👤', name: 'TriNet Mobile',     android: 'https://play.google.com/store/apps/details?id=com.trinet.hrpmobile',         ios: 'https://apps.apple.com/us/app/trinet-mobile/id589217167' },
+    { icon: '✅', name: 'OrangeQC',          android: 'https://play.google.com/store/apps/details?id=com.orangeqc.native',          ios: 'https://apps.apple.com/us/app/orangeqc/id324039524' },
+  ];
+
   const renderResources = () => {
     const res = t.resources;
     return (
@@ -1911,22 +1931,68 @@ export default function KGMasterClass() {
         <SubPageNav title={res.navTitle} />
         <div className="flex-1 overflow-y-auto pb-20">
         <PageHero gradient="bg-gradient-to-br from-slate-600 to-slate-400" Icon={FolderOpen} />
-        <div className="p-6 max-w-2xl mx-auto space-y-3">
-          {res.items.map((item, idx) => (
-            <button
-              key={idx}
-              className="w-full bg-white rounded-xl shadow-md p-5 flex items-center gap-4 hover:shadow-lg hover:scale-105 transition-all border border-gray-100 text-left"
-            >
-              <div className="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                <span className="text-2xl">{item.icon}</span>
+        <div className="p-4 max-w-2xl mx-auto space-y-3">
+          {res.items.map((item, idx) => {
+            const isOpen = openResourceItem === idx;
+            const isApps = idx === 0;
+            return (
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <button
+                  onClick={() => setOpenResourceItem(isOpen ? null : idx)}
+                  className="w-full p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors text-left"
+                >
+                  <div className="w-11 h-11 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">{item.icon}</span>
+                  </div>
+                  <div className="flex-grow">
+                    <p className="text-blue-900 font-semibold text-sm leading-snug">{item.title}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{item.description}</p>
+                  </div>
+                  <span className={`text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}>
+                    <ChevronRight size={18} />
+                  </span>
+                </button>
+
+                {isOpen && isApps && (
+                  <div className="border-t border-slate-100 p-3 space-y-3">
+                    {appsList.map((app, aIdx) => (
+                      <div key={aIdx} className="bg-slate-50 rounded-xl p-3 flex items-start gap-3 border border-slate-100">
+                        <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200 text-2xl">
+                          {app.icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-blue-900 font-bold text-sm">{app.name}</p>
+                          <p className="text-gray-500 text-xs mt-0.5 mb-2">{res.appsDesc[aIdx]}</p>
+                          <div className="flex gap-2 flex-wrap">
+                            <a href={app.android} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 bg-gray-900 text-white rounded-lg px-2.5 py-1.5 hover:bg-gray-700 transition-colors"
+                              onClick={e => e.stopPropagation()}
+                            >
+                              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-white flex-shrink-0"><path d="M3.18 23.76c.37.21.8.22 1.17.04l11.29-6.52-2.5-2.5-9.96 8.98zm-1.1-19.2C2 4.84 2 5.08 2 5.34v13.32c0 .26 0 .5.08.72l.06.06 7.46-7.46v-.18L2.14 4.5l-.06.06zM20.1 10.4l-2.62-1.51-2.83 2.83 2.83 2.83 2.65-1.53c.75-.44.75-1.18-.03-1.62zm-16.92 11l9.96-8.98-2.5-2.5L1.25 21.5l1.93 1.9z"/></svg>
+                              <div>
+                                <div className="text-gray-400 leading-none" style={{fontSize:'7px'}}>GET IT ON</div>
+                                <div className="font-bold text-xs leading-none">Google Play</div>
+                              </div>
+                            </a>
+                            <a href={app.ios} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 bg-gray-900 text-white rounded-lg px-2.5 py-1.5 hover:bg-gray-700 transition-colors"
+                              onClick={e => e.stopPropagation()}
+                            >
+                              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-white flex-shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                              <div>
+                                <div className="text-gray-400 leading-none" style={{fontSize:'7px'}}>DOWNLOAD ON THE</div>
+                                <div className="font-bold text-xs leading-none">App Store</div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="flex-grow">
-                <p className="text-blue-900 font-semibold text-sm leading-snug">{item.title}</p>
-                <p className="text-gray-500 text-xs mt-0.5">{item.description}</p>
-              </div>
-              <ChevronRight className="text-blue-300 flex-shrink-0" size={18} />
-            </button>
-          ))}
+            );
+          })}
         </div>
         <PageFooter />
         </div>
