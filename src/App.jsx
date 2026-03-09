@@ -368,7 +368,7 @@ export default function KGMasterClass() {
           title: 'Chemical Safety',
           topics: [
             { title: 'Chemical Safety',       description: 'Handling hazardous materials safely' },
-            { title: 'Storage & Wiring',      description: 'Proper chemical storage procedures' },
+            { title: 'Storage',               description: 'Proper chemical storage procedures' },
             { title: 'Emergency Procedures',  description: 'What to do in case of chemical incidents' },
             { title: 'Safety Data Sheet',     description: 'Understanding and using SDS documents' },
           ],
@@ -708,7 +708,7 @@ export default function KGMasterClass() {
           title: 'Seguridad con Químicos',
           topics: [
             { title: 'Seguridad con Químicos',       description: 'Manejo seguro de materiales peligrosos' },
-            { title: 'Almacenamiento y Cableado',    description: 'Procedimientos adecuados de almacenamiento' },
+            { title: 'Almacenamiento',               description: 'Procedimientos adecuados de almacenamiento' },
             { title: 'Procedimientos de Emergencia', description: 'Qué hacer en caso de incidentes con químicos' },
             { title: 'Hoja de Datos de Seguridad',   description: 'Entender y usar documentos SDS' },
           ],
@@ -1289,7 +1289,7 @@ export default function KGMasterClass() {
 
           {/* Section 2 — Chemical Safety list */}
           <div>
-            <h3 className="text-emerald-800 font-bold text-base uppercase tracking-wide mb-3 px-1">
+            <h3 className="text-emerald-800 font-bold text-base uppercase tracking-wide mb-3 px-1 text-center">
               {c.section2.title}
             </h3>
             <div className="space-y-3">
@@ -1337,11 +1337,11 @@ export default function KGMasterClass() {
                 className="modal-image w-full object-contain bg-white"
                 style={{ maxHeight: '380px' }}
               />
-              <div className="modal-content bg-blue-900 px-5 py-3 text-center">
+              <div className="modal-content bg-emerald-800 px-5 py-3 text-center">
                 <h3 className="text-white font-bold text-lg">{selectedChemical.name}</h3>
               </div>
-              <div className="modal-content bg-blue-700 px-5 py-4">
-                <p className="text-blue-50 text-sm leading-relaxed">{selectedChemical.description}</p>
+              <div className="modal-content bg-emerald-700 px-5 py-4">
+                <p className="text-emerald-50 text-sm leading-relaxed">{selectedChemical.description}</p>
               </div>
             </div>
           </div>
