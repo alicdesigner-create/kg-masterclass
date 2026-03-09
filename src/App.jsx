@@ -29,6 +29,90 @@ function ImageSlider({ images }) {
   );
 }
 
+// ── Quiz Questions (bilingual) ────────────────────────────────────────────────
+const quizData = [
+  { correct: 2,
+    en: { q: 'What color are the microfiber cloths (rags) designated for restrooms?', opts: ['Blue','Green','Pink','Yellow'] },
+    es: { q: '¿De qué color son los rags (microfiber cloths) designados para los baños?', opts: ['Azul','Verde','Rosa','Amarillo'] },
+  },
+  { correct: 1,
+    en: { q: 'BLUE mops are specifically used for:', opts: ['Food preparation areas','Offices, hallways, reception, and conference rooms','Inside restrooms only','Outdoor loading areas'] },
+    es: { q: 'Los mops de color AZUL se usan específicamente en:', opts: ['Áreas de preparación de alimentos','Oficinas, pasillos, recepción y salas de conferencia','Solo dentro de los baños','Áreas de carga exterior'] },
+  },
+  { correct: 2,
+    en: { q: 'When should you replace a vacuum filter bag?', opts: ['When it is completely full','At half capacity','When it reaches 2/3 capacity','Once a month regardless of use'] },
+    es: { q: '¿Cuándo debes reemplazar la bolsa del filtro de la aspiradora?', opts: ['Cuando esté completamente llena','A la mitad de capacidad','Cuando llegue a 2/3 de capacidad','Una vez al mes sin importar el uso'] },
+  },
+  { correct: 2,
+    en: { q: 'What should you do with dirty mops at the end of your shift?', opts: ['Store them wet in the closet','Leave them in the sink','Place them in the textile collection area for professional laundering'] },
+    es: { q: '¿Qué debes hacer con los mops sucios al final de tu turno?', opts: ['Guardarlos mojados en el clóset','Dejarlos en el fregadero','Colocarlos en el área de recolección textil para lavado profesional'] },
+  },
+  { correct: 1,
+    en: { q: 'Which chemical product is used to clean windows and mirrors without leaving streaks?', opts: ['NABC','Glance / Klearview','Oxivir'] },
+    es: { q: '¿Qué producto químico se usa para limpiar ventanas y espejos sin dejar rayas?', opts: ['NABC','Glance / Klearview','Oxivir'] },
+  },
+  { correct: 2,
+    en: { q: 'How long must NABC remain on a surface to guarantee complete disinfection?', opts: ['2 minutes','5 minutes','10 minutes'] },
+    es: { q: '¿Por cuánto tiempo debe permanecer el NABC en la superficie para garantizar la desinfección completa?', opts: ['2 minutos','5 minutos','10 minutos'] },
+  },
+  { correct: 2,
+    en: { q: 'What product should you use to remove heavy calcium deposits, scale, and rust?', opts: ['Neutral dish soap','Assurance','CLR'] },
+    es: { q: '¿Qué producto debes usar para eliminar depósitos de calcio, sarro y óxido?', opts: ['Jabón neutro para platos','Assurance','CLR'] },
+  },
+  { correct: 1,
+    en: { q: 'What are Victoria Bay Liquid Enzymes used for?', opts: ['Polishing metal','Eliminating organic odors in drains and restrooms','Cleaning glass'] },
+    es: { q: '¿Para qué se usan los Victoria Bay Liquid Enzymes?', opts: ['Pulir metales','Eliminar olores orgánicos en desagües y baños','Limpiar vidrios'] },
+  },
+  { correct: 1,
+    en: { q: 'What should you do if a chemical splashes onto your skin?', opts: ['Apply neutralizing cream','Rinse the affected area with plenty of running water for at least 15 minutes','Wipe it off with a dry cloth'] },
+    es: { q: '¿Qué debes hacer si un químico te salpica la piel?', opts: ['Aplicar crema neutralizante','Enjuagar el área afectada con abundante agua corriente por al menos 15 minutos','Limpiarlo con un paño seco'] },
+  },
+  { correct: 1,
+    en: { q: 'According to uniform standards, what type of footwear is mandatory?', opts: ['Any comfortable athletic shoes','Closed-toe, waterproof, and non-slip shoes'] },
+    es: { q: 'Según los estándares de uniforme, ¿qué tipo de calzado es obligatorio?', opts: ['Cualquier zapato deportivo cómodo','Zapatos de punta cerrada, impermeables y antideslizantes'] },
+  },
+  { correct: 1,
+    en: { q: 'What should you use to reach high cleaning areas?', opts: ['A sturdy chair or box','Only approved ladders'] },
+    es: { q: '¿Qué debes usar para alcanzar áreas de limpieza en altura?', opts: ['Una silla o caja resistente','Solo escaleras aprobadas'] },
+  },
+  { correct: 1,
+    en: { q: 'How should biological waste (blood, vomit, etc.) be disposed of?', opts: ['In the regular trash bag','In properly labeled red Biohazard bags'] },
+    es: { q: '¿Cómo deben desecharse los residuos biológicos (sangre, vómito, etc.)?', opts: ['En la bolsa de basura regular','En bolsas rojas de biohazard debidamente etiquetadas'] },
+  },
+  { correct: 1,
+    en: { q: 'According to OSHA, when must you place "Caution Wet Floor" signs?', opts: ['Only when the floor is very wet','Whenever you are mopping or if a spill occurs'] },
+    es: { q: 'Según OSHA, ¿cuándo debes colocar señales de "Caution Wet Floor"?', opts: ['Solo cuando el piso esté muy mojado','Siempre que estés trapeando o si ocurre un derrame'] },
+  },
+  { correct: 1,
+    en: { q: 'When dusting an office, in which direction should you start?', opts: ['From the bottom up','From the top down'] },
+    es: { q: 'Al desempolvar una oficina, ¿en qué dirección debes empezar?', opts: ['De abajo hacia arriba','De arriba hacia abajo'] },
+  },
+  { correct: 1,
+    en: { q: 'What would you use to restore the shine of chrome fixtures?', opts: ['Pure CLR','Dawn dish soap with warm water'] },
+    es: { q: '¿Qué usarías para restaurar el brillo de los accesorios de cromo?', opts: ['CLR puro','Dawn con agua tibia'] },
+  },
+  { correct: 1,
+    en: { q: 'When should you change the water in your mop bucket?', opts: ['Once per shift','As soon as the water looks cloudy or dirty'] },
+    es: { q: '¿Cuándo debes cambiar el agua en tu balde de trapeador?', opts: ['Una vez por turno','En cuanto el agua se vea turbia o sucia'] },
+  },
+  { correct: 1,
+    en: { q: 'When cleaning an office, what should you do with documents found on desks?', opts: ['Organize and stack them neatly','Never touch, move, or read them'] },
+    es: { q: 'Al limpiar una oficina, ¿qué debes hacer con los documentos en los escritorios?', opts: ['Organizarlos y apilarlos cuidadosamente','Nunca tocarlos, moverlos ni leerlos'] },
+  },
+  { correct: 1,
+    en: { q: 'In what year was KG Facility Solutions founded?', opts: ['1990','1995','2000'] },
+    es: { q: '¿En qué año fue fundada KG Facility Solutions?', opts: ['1990','1995','2000'] },
+  },
+  { correct: 2,
+    en: { q: 'Which of the following is NOT a Core Value of KGFS?', opts: ['Integrity','Accountability','Competition'] },
+    es: { q: '¿Cuál de los siguientes NO es un Core Value de KGFS?', opts: ['Integridad','Responsabilidad','Competencia'] },
+  },
+  { correct: 1,
+    en: { q: 'What should you do if you are going to be late for your shift?', opts: ['Send a message at the end of the day','Notify your supervisor before the shift begins'] },
+    es: { q: '¿Qué debes hacer si vas a llegar tarde a tu turno?', opts: ['Enviar un mensaje al final del día','Notificar a tu supervisor antes de que comience el turno'] },
+  },
+];
+
 export default function KGMasterClass() {
   const [showSplash, setShowSplash] = useState(true);
   const [splashHiding, setSplashHiding] = useState(false);
@@ -40,9 +124,13 @@ export default function KGMasterClass() {
   const [openSafetyTopic, setOpenSafetyTopic] = useState(null);
   const [openSafetyItem, setOpenSafetyItem] = useState(null);
   const [openResourceItem, setOpenResourceItem] = useState(null);
-  const [userInfo, setUserInfo] = useState({ name: '', phone: '', role: '' });
+  const [userInfo, setUserInfo] = useState({ name: '', phone: '', email: '', role: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [quizAnswers, setQuizAnswers] = useState(Array(20).fill(null));
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [quizScore, setQuizScore] = useState(null);
+  const [quizSubmitting, setQuizSubmitting] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [pullY, setPullY] = useState(0);
   const pullStartY = useRef(0);
@@ -541,10 +629,12 @@ export default function KGMasterClass() {
           { value: 'night_crew',        label: 'Night Cleaning Crew Member' },
           { value: 'corporate_office',  label: 'Corporate Office Member' },
         ],
+        emailPlaceholder: 'Email address',
         startBtn:     'Start Quiz',
         errors: {
           name:  'Please enter your full name.',
           phone: 'Please enter a valid phone number.',
+          email: 'Please enter a valid email address.',
           role:  'Please select your role.',
         },
         successHeading:  'You\'re all set!',
@@ -565,15 +655,65 @@ export default function KGMasterClass() {
           { value: 'night_crew',        label: 'Miembro del Equipo de Limpieza Nocturna' },
           { value: 'corporate_office',  label: 'Miembro de Oficina Corporativa' },
         ],
+        emailPlaceholder: 'Correo electrónico',
         startBtn:     'Iniciar Quiz',
         errors: {
           name:  'Por favor ingresa tu nombre completo.',
           phone: 'Por favor ingresa un número de teléfono válido.',
+          email: 'Por favor ingresa un correo electrónico válido.',
           role:  'Por favor selecciona tu rol.',
         },
         successHeading:  '¡Todo listo!',
         successMessage:  'Tu información fue guardada. ¡Mucho éxito en el quiz!',
         backHome:        'Volver al Inicio',
+      },
+    },
+    quiz: {
+      en: {
+        navTitle: 'Take a Quiz',
+        questionOf: (n, t) => `Question ${n} of ${t}`,
+        prev: 'Previous',
+        next: 'Next',
+        submit: 'Submit Quiz',
+        submitNote: 'Answer all questions to submit',
+        unanswered: 'Please answer all questions before submitting.',
+        sending: 'Sending your results…',
+        resultTitle: 'Quiz Complete!',
+        scoreLabel: 'Your Score',
+        high: 'Excellent! Outstanding performance.',
+        mid: 'Good job! Keep reviewing the material.',
+        low: 'Keep studying — you\'ll improve!',
+        correct: 'Correct',
+        incorrect: 'Incorrect',
+        retake: 'Retake Quiz',
+        backHome: 'Back to Home',
+        emailSent: '✓ Results sent to your email.',
+        emailError: 'Could not send email, but your results were recorded.',
+        adminSubject: (name) => `Quiz Result — ${name}`,
+        userSubject: 'Your KG Masterclass Quiz Results',
+      },
+      es: {
+        navTitle: 'Tomar Quiz',
+        questionOf: (n, t) => `Pregunta ${n} de ${t}`,
+        prev: 'Anterior',
+        next: 'Siguiente',
+        submit: 'Enviar Quiz',
+        submitNote: 'Responde todas las preguntas para enviar',
+        unanswered: 'Por favor responde todas las preguntas antes de enviar.',
+        sending: 'Enviando tus resultados…',
+        resultTitle: '¡Quiz Completado!',
+        scoreLabel: 'Tu Puntaje',
+        high: '¡Excelente! Rendimiento sobresaliente.',
+        mid: '¡Buen trabajo! Sigue repasando el material.',
+        low: 'Sigue estudiando — ¡mejorarás!',
+        correct: 'Correcto',
+        incorrect: 'Incorrecto',
+        retake: 'Repetir Quiz',
+        backHome: 'Volver al Inicio',
+        emailSent: '✓ Resultados enviados a tu correo.',
+        emailError: 'No se pudo enviar el email, pero tus resultados fueron registrados.',
+        adminSubject: (name) => `Resultado Quiz — ${name}`,
+        userSubject: 'Tus Resultados del Quiz KG Masterclass',
       },
     },
 
@@ -1871,6 +2011,7 @@ export default function KGMasterClass() {
       const errors = {};
       if (!userInfo.name.trim()) errors.name = r.errors.name;
       if (!userInfo.phone.trim() || !/^\+?[\d\s\-()]{7,}$/.test(userInfo.phone.trim())) errors.phone = r.errors.phone;
+      if (!userInfo.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInfo.email.trim())) errors.email = r.errors.email;
       if (!userInfo.role) errors.role = r.errors.role;
       return errors;
     };
@@ -1883,7 +2024,10 @@ export default function KGMasterClass() {
         return;
       }
       setFormErrors({});
-      setFormSubmitted(true);
+      setQuizAnswers(Array(20).fill(null));
+      setCurrentQuestion(0);
+      setQuizScore(null);
+      navigateTo('quiz');
     };
 
     const inputBase = 'w-full bg-white border-2 rounded-xl px-4 py-3 text-gray-800 text-sm focus:outline-none transition-colors';
@@ -1952,6 +2096,28 @@ export default function KGMasterClass() {
                   )}
                 </div>
 
+                {/* Email */}
+                <div>
+                  <label className="block text-blue-900 font-semibold text-sm mb-1.5">
+                    ✉️ {r.emailPlaceholder}
+                  </label>
+                  <input
+                    type="email"
+                    value={userInfo.email}
+                    onChange={(e) => {
+                      setUserInfo({ ...userInfo, email: e.target.value });
+                      if (formErrors.email) setFormErrors({ ...formErrors, email: undefined });
+                    }}
+                    placeholder={r.emailPlaceholder}
+                    className={`${inputBase} ${formErrors.email ? inputErr : inputOk}`}
+                  />
+                  {formErrors.email && (
+                    <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
+                      <span>⚠</span> {formErrors.email}
+                    </p>
+                  )}
+                </div>
+
                 {/* Role */}
                 <div>
                   <label className="block text-blue-900 font-semibold text-sm mb-1.5">
@@ -2016,6 +2182,262 @@ export default function KGMasterClass() {
           )}
         </div>
         <PageFooter />
+      </div>
+    );
+  };
+
+  // ── Brevo Email Sender ────────────────────────────────────────────────────────
+  const sendBrevoEmails = async (answers, score) => {
+    const BREVO_KEY = 'mOzRAQckVyfb9p5I';
+    const SENDER    = { name: 'KG Facility Solutions Team', email: 'alirioc@kgfsco.com' };
+    const ADMIN     = 'alirioc@kgfsco.com';
+    const pct       = Math.round((score / 20) * 100);
+    const now       = new Date().toLocaleString('en-US', { timeZone: 'America/Denver' });
+    const roleLabel = translations.registration[lang].roles.find(r => r.value === userInfo.role)?.label || userInfo.role;
+
+    const rows = quizData.map((q, i) => {
+      const qLang  = q[lang];
+      const sel    = answers[i];
+      const ok     = sel === q.correct;
+      return `<tr style="background:${ok ? '#f0fdf4' : '#fff1f2'}">
+        <td style="padding:6px 10px;font-size:12px;color:#374151"><b>Q${i+1}.</b> ${qLang.q}</td>
+        <td style="padding:6px 10px;font-size:12px;color:#374151">${sel !== null ? qLang.opts[sel] : '—'}</td>
+        <td style="padding:6px 10px;font-size:12px;color:#374151">${qLang.opts[q.correct]}</td>
+        <td style="padding:6px 10px;font-size:12px;font-weight:bold;color:${ok ? '#16a34a' : '#dc2626'}">${ok ? '✓' : '✗'}</td>
+      </tr>`;
+    }).join('');
+
+    const adminHtml = `<div style="font-family:sans-serif;max-width:700px;margin:auto">
+      <div style="background:#1e3a8a;padding:24px;text-align:center">
+        <h1 style="color:#fff;margin:0;font-size:20px">KG Masterclass — Quiz Result</h1>
+      </div>
+      <div style="padding:20px;background:#f8fafc">
+        <p><b>Name:</b> ${userInfo.name}</p>
+        <p><b>Phone:</b> ${userInfo.phone}</p>
+        <p><b>Email:</b> ${userInfo.email}</p>
+        <p><b>Role:</b> ${roleLabel}</p>
+        <p><b>Date:</b> ${now} (MT)</p>
+        <p style="font-size:22px;font-weight:bold;color:${pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626'}">
+          Score: ${score}/20 (${pct}%)
+        </p>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:16px">
+          <thead><tr style="background:#1e3a8a">
+            <th style="padding:8px 10px;color:#fff;font-size:12px;text-align:left">Question</th>
+            <th style="padding:8px 10px;color:#fff;font-size:12px;text-align:left">Answer Given</th>
+            <th style="padding:8px 10px;color:#fff;font-size:12px;text-align:left">Correct Answer</th>
+            <th style="padding:8px 10px;color:#fff;font-size:12px;text-align:left">Result</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
+
+    const userHtml = `<div style="font-family:sans-serif;max-width:500px;margin:auto">
+      <div style="background:#1e3a8a;padding:24px;text-align:center">
+        <h1 style="color:#fff;margin:0;font-size:20px">KG Masterclass Quiz</h1>
+      </div>
+      <div style="padding:24px;background:#f8fafc;text-align:center">
+        <p style="font-size:16px">Hi <b>${userInfo.name}</b>, thank you for completing the quiz!</p>
+        <p style="font-size:40px;font-weight:bold;color:${pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626'}">${pct}%</p>
+        <p style="font-size:14px;color:#6b7280">${score} out of 20 correct</p>
+        <p style="margin-top:16px;font-size:14px">${pct>=80?'Excellent work! 🎉':pct>=60?'Good job! Keep reviewing the material.':'Keep studying — you\'ll improve!'}</p>
+        <p style="margin-top:24px;font-size:12px;color:#9ca3af">KG Facility Solutions Team</p>
+      </div>
+    </div>`;
+
+    const post = async (to, subject, html) => {
+      const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: { 'api-key': BREVO_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sender: SENDER, to: [{ email: to }], subject, htmlContent: html }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+    };
+
+    await post(ADMIN, `Quiz Result — ${userInfo.name} (${pct}%)`, adminHtml);
+    if (userInfo.email) await post(userInfo.email, 'Your KG Masterclass Quiz Results', userHtml);
+  };
+
+  // ── Quiz Screen ───────────────────────────────────────────────────────────────
+  const renderQuiz = () => {
+    const qz  = translations.quiz[lang];
+    const q   = quizData[currentQuestion];
+    const qL  = q[lang];
+    const answered  = quizAnswers.filter(a => a !== null).length;
+    const allDone   = answered === 20;
+
+    const handleAnswer = (optIdx) => {
+      const updated = [...quizAnswers];
+      updated[currentQuestion] = optIdx;
+      setQuizAnswers(updated);
+    };
+
+    const handleSubmit = async () => {
+      if (!allDone) { alert(qz.unanswered); return; }
+      setQuizSubmitting(true);
+      const score = quizAnswers.reduce((acc, ans, i) => acc + (ans === quizData[i].correct ? 1 : 0), 0);
+      setQuizScore(score);
+      try { await sendBrevoEmails(quizAnswers, score); }
+      catch (e) { console.error('Brevo error:', e); }
+      setQuizSubmitting(false);
+      navigateTo('quiz-result');
+    };
+
+    const optLabels = ['A', 'B', 'C', 'D'];
+
+    return (
+      <div className="h-screen flex flex-col bg-slate-50">
+        <SubPageNav onBack={() => navigateTo('registration')} />
+        <div className="flex-1 overflow-y-auto pb-6">
+          {/* Progress bar */}
+          <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-blue-900 font-bold text-sm">{qz.questionOf(currentQuestion + 1, 20)}</span>
+              <span className="text-gray-500 text-xs">{answered}/20 {lang === 'en' ? 'answered' : 'respondidas'}</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div
+                className="bg-blue-900 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${((currentQuestion + 1) / 20) * 100}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Dots navigation */}
+          <div className="flex flex-wrap gap-1.5 justify-center px-4 pt-4">
+            {quizData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentQuestion(i)}
+                className={`w-7 h-7 rounded-full text-xs font-bold transition-colors ${
+                  i === currentQuestion
+                    ? 'bg-blue-900 text-white'
+                    : quizAnswers[i] !== null
+                    ? 'bg-green-500 text-white'
+                    : 'bg-gray-200 text-gray-600'
+                }`}
+              >{i + 1}</button>
+            ))}
+          </div>
+
+          {/* Question card */}
+          <div className="px-4 pt-4 max-w-xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-4">
+              <p className="text-blue-900 font-bold text-base leading-snug">{qL.q}</p>
+            </div>
+
+            {/* Options */}
+            <div className="space-y-3">
+              {qL.opts.map((opt, i) => {
+                const selected = quizAnswers[currentQuestion] === i;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => handleAnswer(i)}
+                    className={`w-full flex items-center gap-3 p-4 rounded-2xl border-2 transition-all text-left ${
+                      selected
+                        ? 'border-blue-900 bg-blue-50 shadow-md'
+                        : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50'
+                    }`}
+                  >
+                    <span className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm ${
+                      selected ? 'bg-blue-900 text-white' : 'bg-gray-100 text-gray-600'
+                    }`}>{optLabels[i]}</span>
+                    <span className={`text-sm leading-snug ${selected ? 'text-blue-900 font-semibold' : 'text-gray-700'}`}>{opt}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom nav */}
+        <div className="bg-white border-t border-gray-200 px-4 py-3 flex gap-3">
+          <button
+            onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+            disabled={currentQuestion === 0}
+            className="flex-1 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold text-sm disabled:opacity-40 hover:border-blue-300 transition-colors"
+          >{qz.prev}</button>
+
+          {currentQuestion < 19 ? (
+            <button
+              onClick={() => setCurrentQuestion(Math.min(19, currentQuestion + 1))}
+              className="flex-1 py-3 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-colors"
+            >{qz.next}</button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              disabled={!allDone || quizSubmitting}
+              className={`flex-1 py-3 rounded-xl font-bold text-sm transition-colors ${
+                allDone && !quizSubmitting
+                  ? 'bg-yellow-400 text-blue-900 hover:bg-yellow-300 shadow-lg'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              }`}
+            >{quizSubmitting ? qz.sending : qz.submit}</button>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  // ── Quiz Result Screen ────────────────────────────────────────────────────────
+  const renderQuizResult = () => {
+    const qz  = translations.quiz[lang];
+    const pct = quizScore !== null ? Math.round((quizScore / 20) * 100) : 0;
+    const color = pct >= 80 ? 'text-green-600' : pct >= 60 ? 'text-yellow-500' : 'text-red-500';
+    const ring  = pct >= 80 ? 'border-green-500' : pct >= 60 ? 'border-yellow-400' : 'border-red-400';
+    const msg   = pct >= 80 ? qz.high : pct >= 60 ? qz.mid : qz.low;
+
+    return (
+      <div className="h-screen flex flex-col bg-slate-50">
+        <SubPageNav onBack={goHome} />
+        <div className="flex-1 overflow-y-auto pb-6">
+          <div className="max-w-md mx-auto px-4 pt-8 space-y-5">
+            {/* Score circle */}
+            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 text-center">
+              <p className="text-gray-500 text-sm mb-4">{qz.resultTitle}</p>
+              <div className={`w-36 h-36 rounded-full border-8 ${ring} flex flex-col items-center justify-center mx-auto mb-4`}>
+                <span className={`text-4xl font-black ${color}`}>{pct}%</span>
+                <span className="text-gray-400 text-xs">{quizScore}/20</span>
+              </div>
+              <p className="text-blue-900 font-semibold text-base">{msg}</p>
+            </div>
+
+            {/* Answer summary */}
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-100">
+                <p className="text-blue-900 font-bold text-sm">{lang === 'en' ? 'Answer Review' : 'Revisión de Respuestas'}</p>
+              </div>
+              <div className="divide-y divide-gray-100">
+                {quizData.map((q, i) => {
+                  const qL = q[lang];
+                  const ok = quizAnswers[i] === q.correct;
+                  return (
+                    <div key={i} className={`px-4 py-3 ${ok ? 'bg-green-50' : 'bg-red-50'}`}>
+                      <p className="text-gray-700 text-xs font-semibold mb-1">Q{i+1}. {qL.q}</p>
+                      <p className={`text-xs font-bold ${ok ? 'text-green-700' : 'text-red-600'}`}>
+                        {ok ? '✓' : '✗'} {qL.opts[quizAnswers[i] ?? 0]}
+                        {!ok && <span className="text-gray-500 font-normal"> → {qL.opts[q.correct]}</span>}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="space-y-3 pb-4">
+              <button
+                onClick={() => { setQuizAnswers(Array(20).fill(null)); setCurrentQuestion(0); setQuizScore(null); navigateTo('quiz'); }}
+                className="w-full py-3 rounded-xl border-2 border-blue-900 text-blue-900 font-bold text-sm hover:bg-blue-50 transition-colors"
+              >{qz.retake}</button>
+              <button
+                onClick={goHome}
+                className="w-full py-3 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-colors shadow"
+              >{qz.backHome}</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
@@ -2162,6 +2584,8 @@ export default function KGMasterClass() {
   let screen;
   switch (currentScreen) {
     case 'registration': screen = renderRegistration(); break;
+    case 'quiz':         screen = renderQuiz(); break;
+    case 'quiz-result':  screen = renderQuizResult(); break;
     case 'kgfs':         screen = renderKGFS(); break;
     case 'cleaning':              screen = renderCleaning(); break;
     case 'cleaning-offices':      screen = renderCleaningDetail('offices'); break;
