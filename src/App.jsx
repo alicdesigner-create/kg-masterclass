@@ -371,6 +371,15 @@ export default function KGMasterClass() {
             { label: 'Care',        text: 'Remove the pads or brushes and clean the squeegee blade to guarantee perfect drying for the next shift.' },
           ]},
         ],
+        tutorials: {
+          title: 'Learn More: Equipment Tutorials',
+          videos: [
+            { title: 'Backpack Operation',    desc: 'Adjusting the ergonomic harness and using specialized attachments.',                          url: 'https://www.youtube.com/watch?v=GvJoW9uHZmI', id: 'GvJoW9uHZmI' },
+            { title: 'Backpack Maintenance',  desc: 'Step-by-step filter replacement and suction optimization.',                                   url: 'https://www.youtube.com/watch?v=Szig0xS7pjI', id: 'Szig0xS7pjI' },
+            { title: 'Upright Vacuum',        desc: 'Brush roll cleaning and motor intake filter care.',                                           url: 'https://www.youtube.com/watch?v=Cfj9t1pXgxI', id: 'Cfj9t1pXgxI' },
+            { title: 'Auto Scrubber',         desc: 'Floor preparation, solution tank setup, and squeegee adjustment.',                            url: 'https://www.youtube.com/watch?v=VF_ZH5xeq5A', id: 'VF_ZH5xeq5A' },
+          ],
+        },
       },
 
       chemicals: {
@@ -752,6 +761,15 @@ export default function KGMasterClass() {
             { label: 'Cuidado',       text: 'Retira los almohadillas o cepillos y limpia la escobilla de secado para garantizar un secado perfecto en el siguiente turno.' },
           ]},
         ],
+        tutorials: {
+          title: 'Aprende Más: Tutoriales de Equipos',
+          videos: [
+            { title: 'Operación de Mochila',      desc: 'Ajuste del arnés ergonómico y uso de accesorios especializados.',                              url: 'https://www.youtube.com/watch?v=GvJoW9uHZmI', id: 'GvJoW9uHZmI' },
+            { title: 'Mantenimiento de Mochila',  desc: 'Reemplazo del filtro paso a paso y optimización de succión.',                                  url: 'https://www.youtube.com/watch?v=Szig0xS7pjI', id: 'Szig0xS7pjI' },
+            { title: 'Aspiradora Vertical',       desc: 'Limpieza del rodillo y cuidado del filtro de entrada del motor.',                              url: 'https://www.youtube.com/watch?v=Cfj9t1pXgxI', id: 'Cfj9t1pXgxI' },
+            { title: 'Auto Scrubber',             desc: 'Preparación del piso, configuración del tanque y ajuste de la escobilla.',                     url: 'https://www.youtube.com/watch?v=VF_ZH5xeq5A', id: 'VF_ZH5xeq5A' },
+          ],
+        },
       },
 
       chemicals: {
@@ -1418,6 +1436,42 @@ export default function KGMasterClass() {
                 </div>
               );
             })}
+
+            {/* ── Tutorials Section ── */}
+            <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+              <div className="bg-gradient-to-r from-orange-600 to-orange-400 px-4 py-3 flex items-center gap-2">
+                <span className="text-white text-lg">▶️</span>
+                <h3 className="text-white font-bold text-sm tracking-wide">{e.tutorials.title}</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-3 p-3">
+                {e.tutorials.videos.map((video, idx) => (
+                  <a
+                    key={idx}
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="relative">
+                      <img
+                        src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                        alt={video.title}
+                        className="w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/25 flex items-center justify-center hover:bg-black/40 transition-colors">
+                        <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center shadow">
+                          <span className="text-white text-xs ml-0.5">▶</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-2 bg-orange-50">
+                      <p className="text-orange-800 font-bold text-xs leading-snug">{video.title}</p>
+                      <p className="text-gray-500 text-xs leading-snug mt-0.5">{video.desc}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
           <PageFooter />
         </div>
