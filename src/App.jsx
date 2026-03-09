@@ -1273,8 +1273,8 @@ export default function KGMasterClass() {
 
   // ── Equipment Screen ──────────────────────────────────────────────────────────
   const equipmentImages = [
-    { image: '/equipo/mops-rags.jpg',        imgPosition: 'top'    },
-    { image: '/equipo/mops-rags.jpg',        imgPosition: 'bottom' },
+    { image: '/equipo/rags.jpg',             imgPosition: 'center' },
+    { image: '/equipo/mops.jpg',             imgPosition: 'center' },
     { image: '/equipo/backpack-vacuums.jpg', imgPosition: 'center' },
     { image: '/equipo/auto-scrubbers.jpg',   imgPosition: 'center' },
   ];
