@@ -1024,7 +1024,7 @@ export default function KGMasterClass() {
             <img src="/kg-logo.png" alt="KG Masterclass" className="h-12 object-contain" />
           </button>
         </div>
-        <div className="ml-auto flex-shrink-0"><LangToggle /></div>
+        <div className="ml-auto flex-shrink-0"><LangToggle dark /></div>
       </div>
     </div>
   );
