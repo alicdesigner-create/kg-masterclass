@@ -485,6 +485,7 @@ export default function KGMasterClass() {
         ],
         items: [
           { icon: '📱', title: 'My Applications',                          description: 'Access your work apps and platforms' },
+          { icon: '💵', title: 'How To Obtain My Pay Stubs From TriNet',   description: 'Step-by-step guide to access your pay stubs' },
           { icon: '📖', title: 'How to get the Employee Handbook on Trinet?', description: 'Step-by-step guide to download your handbook' },
           { icon: '📄', title: 'How to download my W2 on Tri-Net?',       description: 'Access and download your tax documents' },
           { icon: '☎️', title: 'Contact Trinet',                           description: 'Get support directly from Trinet' },
@@ -881,6 +882,7 @@ export default function KGMasterClass() {
         ],
         items: [
           { icon: '📱', title: 'Mis Aplicaciones',                                    description: 'Accede a tus apps y plataformas de trabajo' },
+          { icon: '💵', title: 'Cómo Obtener Mis Recibos de Pago en TriNet',          description: 'Guía paso a paso para acceder a tus recibos de pago' },
           { icon: '📖', title: '¿Cómo obtener el Handbook de empleado en Trinet?',    description: 'Guía paso a paso para descargar tu handbook' },
           { icon: '📄', title: '¿Cómo descargar mi W2 en Tri-Net?',                  description: 'Accede y descarga tus documentos de impuestos' },
           { icon: '☎️', title: 'Contactar a Trinet',                                  description: 'Obtén soporte directamente de Trinet' },
