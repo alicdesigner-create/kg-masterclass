@@ -1691,7 +1691,7 @@ export default function KGMasterClass() {
                   <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <button
                       onClick={() => setOpenSafetyTopic(isOpen ? null : idx)}
-                      className="w-full p-5 flex items-center gap-4 hover:bg-emerald-50 transition-colors text-left"
+                      className={`w-full p-5 flex items-center gap-4 transition-colors text-left ${isOpen ? 'bg-emerald-100' : 'hover:bg-emerald-50'}`}
                     >
                       <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow">
                         <span className="text-white font-bold text-sm">{idx + 1}</span>
