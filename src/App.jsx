@@ -350,7 +350,7 @@ export default function KGMasterClass() {
       chemicals: {
         navTitle: 'Chemicals',
         descriptions: {
-          nabc:       'A hospital-grade disinfectant and bathroom cleaner. Effectively kills bacteria and viruses while neutralizing odors; safe for most restroom surfaces.',
+          nabc:       'NABC (Non-Acid Disinfectant Bathroom Cleaner): A hospital-grade disinfectant and bathroom cleaner that effectively kills bacteria and viruses while neutralizing odors. Due to its neutral pH and pleasant scent, it is technically safe for all hard, non-porous surfaces. To use, spray the surface evenly, allow it to remain wet for 10 minutes to ensure full disinfection, and wipe clean with the appropriate microfiber cloth.',
           klearview:  'A streak-free glass and surface cleaner. Specifically formulated for windows, mirrors, and other reflective surfaces.',
           topclean:   "A daily-use floor cleaner that removes dirt and grime without leaving residue. Its neutral pH ensures it won't damage floor finishes.",
           nutrarinse: 'A specialty cleaner designed to remove ice-melt and salt residue. It eliminates alkaline deposits that dull floors during winter or after stripping.',
@@ -690,7 +690,7 @@ export default function KGMasterClass() {
       chemicals: {
         navTitle: 'Químicos',
         descriptions: {
-          nabc:       'Desinfectante y limpiador de baños de grado hospitalario. Elimina bacterias y virus eficazmente mientras neutraliza olores; seguro para la mayoría de las superficies de baño.',
+          nabc:       'NABC (Non-Acid Disinfectant Bathroom Cleaner): Desinfectante y limpiador de baños de grado hospitalario que elimina eficazmente bacterias y virus mientras neutraliza olores. Gracias a su pH neutro y aroma agradable, es técnicamente seguro para todas las superficies duras no porosas. Para usarlo, rocía la superficie de manera uniforme, déjala húmeda durante 10 minutos para garantizar la desinfección completa y limpia con el paño de microfibra adecuado.',
           klearview:  'Limpiador de vidrios y superficies sin rayas. Formulado específicamente para ventanas, espejos y otras superficies reflectantes.',
           topclean:   'Limpiador de pisos de uso diario que elimina suciedad sin dejar residuos. Su pH neutro garantiza que no dañará los acabados del piso.',
           nutrarinse: 'Limpiador especializado para eliminar residuos de sal y deshielo. Elimina depósitos alcalinos que opacan los pisos en invierno o después del decapado.',
