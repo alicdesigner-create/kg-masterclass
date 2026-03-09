@@ -486,7 +486,7 @@ export default function KGMasterClass() {
         items: [
           { icon: '📱', title: 'My Applications', description: 'Access your work apps and platforms' },
           {
-            icon: '💵', title: 'How To Obtain My Pay Stubs From TriNet', description: 'Step-by-step guide to access your pay stubs',
+            icon: '💵', title: 'How to obtain my pay stubs from TriNet', description: 'Step-by-step guide to access your pay stubs',
             steps: [
               'Open the app and go to the "Money" tab at the bottom.',
               'Tap on "Pay".',
