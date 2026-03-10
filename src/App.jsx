@@ -1495,17 +1495,19 @@ export default function KGMasterClass() {
                   <button
                     key={idx}
                     onClick={() => setOpenValue(isOpen ? null : idx)}
-                    className="w-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-left overflow-hidden"
+                    className="w-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
                   >
-                    <div className="flex items-center gap-3 px-4 py-3">
-                      <div className={`w-10 h-10 ${color.bg} rounded-xl flex items-center justify-center shadow-md flex-shrink-0`}>
+                    <div className="flex flex-col items-center gap-2 px-4 pt-4 pb-3">
+                      <div className={`w-10 h-10 ${color.bg} rounded-xl flex items-center justify-center shadow-md`}>
                         <Icon size={20} className={color.icon} />
                       </div>
-                      <p className="text-blue-900 font-semibold text-sm flex-1">{label}</p>
-                      <ChevronRight size={14} className={`text-blue-300 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-90' : ''}`} />
+                      <p className="text-blue-900 font-semibold text-sm">{label}</p>
+                      <span className={`text-blue-200 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </span>
                     </div>
                     <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      <p className="text-gray-500 text-xs font-light leading-relaxed px-4 pb-3 text-center">{desc}</p>
+                      <p className="text-gray-500 text-xs font-light leading-relaxed px-4 pb-4 text-center">{desc}</p>
                     </div>
                   </button>
                 );
