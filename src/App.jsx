@@ -134,7 +134,8 @@ export default function KGMasterClass() {
   const [scrollY, setScrollY] = useState(0);
   const [pullY, setPullY] = useState(0);
   const pullStartY = useRef(0);
-  const pullYRef = useRef(0);
+  const pullTimerRef = useRef(null);
+  const pullActiveRef = useRef(false);
   const safetyRefs = useRef([]);
 
   // ── Scroll listener for parallax ──────────────────────────────────────────────
@@ -144,23 +145,34 @@ export default function KGMasterClass() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // ── Pull-to-refresh (iOS PWA) ──────────────────────────────────────────────────
+  // ── Pull-to-refresh: hold 3 seconds while pulled down ────────────────────────
   useEffect(() => {
-    const onStart = (e) => { pullStartY.current = e.touches[0].clientY; };
-    const onMove = (e) => {
-      const delta = e.touches[0].clientY - pullStartY.current;
-      if (delta <= 0) return;
-      const scrollEls = document.querySelectorAll('.overflow-y-auto');
-      const atTop = Array.from(scrollEls).some(el => el.scrollTop <= 2);
-      if (!atTop) return;
-      pullYRef.current = Math.min(delta * 0.5, 120);
-      setPullY(pullYRef.current);
-    };
-    const onEnd = () => {
-      if (pullYRef.current >= 80) window.location.reload();
-      pullYRef.current = 0;
+    const cancel = () => {
+      clearTimeout(pullTimerRef.current);
+      pullTimerRef.current = null;
+      pullActiveRef.current = false;
       setPullY(0);
     };
+
+    const onStart = (e) => {
+      pullStartY.current = e.touches[0].clientY;
+    };
+
+    const onMove = (e) => {
+      const delta = e.touches[0].clientY - pullStartY.current;
+      if (delta <= 40) { if (pullActiveRef.current) cancel(); return; }
+      const scrollEls = document.querySelectorAll('.overflow-y-auto');
+      const atTop = Array.from(scrollEls).some(el => el.scrollTop <= 2);
+      if (!atTop) { if (pullActiveRef.current) cancel(); return; }
+      setPullY(Math.min(delta * 0.4, 60));
+      if (!pullActiveRef.current) {
+        pullActiveRef.current = true;
+        pullTimerRef.current = setTimeout(() => { window.location.reload(); }, 3000);
+      }
+    };
+
+    const onEnd = () => { cancel(); };
+
     document.addEventListener('touchstart', onStart, { passive: true });
     document.addEventListener('touchmove', onMove, { passive: true });
     document.addEventListener('touchend', onEnd);
@@ -2620,7 +2632,7 @@ export default function KGMasterClass() {
         >
           <div className="w-8 h-8 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center">
             <svg
-              className={`text-blue-500 ${pullY >= 40 ? 'animate-spin' : ''}`}
+              className="text-blue-500 animate-spin"
               width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
             >
