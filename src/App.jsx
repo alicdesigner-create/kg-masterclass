@@ -153,11 +153,11 @@ export default function KGMasterClass() {
       const scrollEls = document.querySelectorAll('.overflow-y-auto');
       const atTop = Array.from(scrollEls).some(el => el.scrollTop <= 2);
       if (!atTop) return;
-      pullYRef.current = Math.min(delta * 0.5, 60);
+      pullYRef.current = Math.min(delta * 0.5, 120);
       setPullY(pullYRef.current);
     };
     const onEnd = () => {
-      if (pullYRef.current >= 40) window.location.reload();
+      if (pullYRef.current >= 80) window.location.reload();
       pullYRef.current = 0;
       setPullY(0);
     };
