@@ -279,8 +279,8 @@ export default function KGMasterClass() {
       needMoreInfo: 'Need more info?',
       contactUs:    'Contact us',
       footer: {
-        copy:       '© 2026 KG Facility Solutions. All Rights Reserved.',
-        designedBy: 'Designed by tesographics.com',
+        copy:       '© 2026 Teso Graphics. All Rights Reserved.',
+        designedBy: 'KG Facility Solutions - Designed by tesographics.com',
       },
       contact: {
         navTitle:     'Contact KG Office',
@@ -773,8 +773,8 @@ export default function KGMasterClass() {
       needMoreInfo: '¿Necesitas más información?',
       contactUs:    'Contáctanos',
       footer: {
-        copy:       '© 2026 KG Facility Solutions. Todos los Derechos Reservados.',
-        designedBy: 'Diseñado por tesographics.com',
+        copy:       '© 2026 Teso Graphics. Todos los Derechos Reservados.',
+        designedBy: 'KG Facility Solutions - Diseñado por tesographics.com',
       },
       contact: {
         navTitle:      'Contactar Oficina KG',
